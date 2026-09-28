@@ -1,0 +1,2254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plug Gadgets — iPhones, Laptops & Accessories | Lagos Computer Village</title>
+<meta name="description" content="Plug Gadgets — Lagos' most trusted plug for iPhones, MacBooks, iPads, AirPods and accessories. Direct phone swapping available. Visit us at Computer Village, Ikeja.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23c8ff3d'/%3E%3Crect x='36' y='10' width='6' height='14' rx='3' fill='%230a0a0a'/%3E%3Crect x='58' y='10' width='6' height='14' rx='3' fill='%230a0a0a'/%3E%3Ccircle cx='50' cy='60' r='26' fill='%230a0a0a'/%3E%3Cpath d='M54 40 L40 62 H50 L46 84 L64 58 H53 Z' fill='%23c8ff3d'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ==========================================================================
+   PLUG GADGETS — DESIGN TOKENS
+   ========================================================================== */
+:root{
+  --bg:#0a0a0a;
+  --bg-2:#111111;
+  --card:#161616;
+  --card-2:#1d1d1d;
+  --line:rgba(255,255,255,.08);
+  --line-2:rgba(255,255,255,.16);
+  --text:#f7f7f7;
+  --muted:#8f8f8f;
+  --lime:#c8ff3d;
+  --lime-2:#9ee01a;
+  --amber:#ffb347;
+  --coral:#ff6b4a;
+  --glow:200,255,61;
+  --radius:20px;
+  --radius-lg:28px;
+  --max:1320px;
+  --font:'Inter',system-ui,-apple-system,sans-serif;
+  --display:'Space Grotesk','Inter',sans-serif;
+  --ease:cubic-bezier(.22,.72,.24,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:var(--font);font-size:16px;line-height:1.6;
+  overflow-x:hidden;-webkit-font-smoothing:antialiased;
+}
+body.locked{overflow:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+h1,h2,h3,h4{margin:0;line-height:1.1;font-weight:700}
+p{margin:0}
+::selection{background:var(--lime);color:#0a0a0a}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-track{background:#0a0a0a}
+::-webkit-scrollbar-thumb{background:#262626;border-radius:20px;border:2px solid #0a0a0a}
+
+/* ==========================================================================
+   LAYOUT
+   ========================================================================== */
+.wrap{width:100%;max-width:var(--max);margin:0 auto;padding:0 24px}
+.section{position:relative;padding:110px 0}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;font-size:.7rem;font-weight:800;
+  letter-spacing:.32em;text-transform:uppercase;color:var(--lime);margin-bottom:20px;
+}
+.eyebrow::before{content:'';width:26px;height:2px;background:var(--lime);border-radius:2px}
+.section-title{
+  font-family:var(--display);font-size:clamp(2rem,4.6vw,3.6rem);
+  letter-spacing:-.03em;line-height:1;font-weight:700;
+}
+.section-lead{color:var(--muted);max-width:580px;margin-top:18px;font-size:1.02rem;line-height:1.75}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap;margin-bottom:52px}
+
+/* ==========================================================================
+   BUTTONS
+   ========================================================================== */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:15px 28px;border-radius:100px;font-size:.86rem;font-weight:700;
+  letter-spacing:.02em;transition:.35s var(--ease);white-space:nowrap;
+  border:1.5px solid transparent;cursor:pointer;position:relative;overflow:hidden;
+}
+.btn--primary{background:var(--lime);color:#0a0a0a;box-shadow:0 12px 40px -14px rgba(var(--glow),.75)}
+.btn--primary:hover{transform:translateY(-3px);box-shadow:0 20px 50px -14px rgba(var(--glow),.95);background:#d4ff4f}
+.btn--ghost{border-color:var(--line-2);background:rgba(255,255,255,.03);color:var(--text);backdrop-filter:blur(10px)}
+.btn--ghost:hover{border-color:var(--lime);color:var(--lime);transform:translateY(-3px)}
+.btn--dark{background:#0a0a0a;color:var(--lime);border-color:var(--lime)}
+.btn--dark:hover{background:var(--lime);color:#0a0a0a}
+.btn--wa{background:#25D366;color:#fff;box-shadow:0 12px 40px -14px rgba(37,211,102,.75)}
+.btn--wa:hover{background:#2ee06e;transform:translateY(-3px);box-shadow:0 20px 50px -14px rgba(37,211,102,.9)}
+.btn--sm{padding:10px 18px;font-size:.76rem}
+.btn--xs{padding:7px 13px;font-size:.7rem;border-radius:100px}
+.btn--danger{background:rgba(255,80,80,.1);border-color:rgba(255,80,80,.4);color:#ff8080}
+.btn--danger:hover{background:rgba(255,80,80,.2);border-color:#ff6060}
+.btn--block{width:100%}
+.btn svg{width:15px;height:15px;flex-shrink:0}
+
+/* ==========================================================================
+   DECORATIVE
+   ========================================================================== */
+.noise{
+  position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.03;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.glow{position:fixed;border-radius:50%;filter:blur(140px);pointer-events:none;z-index:-1;opacity:.12}
+.glow--1{width:700px;height:700px;background:var(--lime);top:-280px;right:-200px}
+.glow--2{width:560px;height:560px;background:var(--amber);bottom:-200px;left:-200px;opacity:.08}
+.grid-bg{
+  position:fixed;inset:0;z-index:-1;opacity:.35;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:64px 64px;
+  -webkit-mask-image:radial-gradient(ellipse at 50% 30%,#000 20%,transparent 70%);
+  mask-image:radial-gradient(ellipse at 50% 30%,#000 20%,transparent 70%);
+}
+.scroll-progress{position:fixed;top:0;left:0;height:2.5px;width:0;z-index:95;background:var(--lime);transition:width .1s linear;box-shadow:0 0 12px rgba(var(--glow),.8)}
+
+/* ==========================================================================
+   HEADER + NAV
+   ========================================================================== */
+.header{
+  position:fixed;top:0;left:0;right:0;z-index:90;padding:18px 0;
+  transition:padding .4s var(--ease),background .4s,border-color .4s,backdrop-filter .4s;
+  border-bottom:1px solid transparent;
+}
+.header.scrolled{padding:10px 0;background:rgba(10,10,10,.82);backdrop-filter:blur(20px) saturate(160%);border-bottom-color:var(--line)}
+.header__inner{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.brand__mark{width:46px;height:46px;flex-shrink:0;transition:transform .5s var(--ease)}
+.brand__mark svg{width:100%;height:100%;display:block}
+.brand__mark img{width:100%;height:100%;object-fit:contain}
+.brand:hover .brand__mark{transform:rotate(-12deg) scale(1.06)}
+.brand__text{display:flex;flex-direction:column;line-height:1}
+.brand__name{font-family:var(--display);font-weight:700;font-size:1.12rem;letter-spacing:-.02em}
+.brand__sub{font-size:.56rem;letter-spacing:.28em;text-transform:uppercase;color:var(--lime);margin-top:5px;font-weight:700}
+
+.nav{display:flex;align-items:center;gap:32px}
+.nav a{font-size:.83rem;font-weight:500;letter-spacing:.02em;color:#c8c8c8;position:relative;padding:6px 0;transition:color .3s}
+.nav a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:1.5px;background:var(--lime);transition:width .35s var(--ease)}
+.nav a:hover{color:#fff}
+.nav a:hover::after{width:100%}
+.header__actions{display:flex;align-items:center;gap:10px}
+.cart-btn{
+  position:relative;width:46px;height:46px;border-radius:14px;border:1px solid var(--line-2);
+  display:grid;place-items:center;transition:.3s var(--ease);color:var(--text);
+}
+.cart-btn:hover{border-color:var(--lime);color:var(--lime)}
+.cart-btn svg{width:19px;height:19px}
+.cart-count{
+  position:absolute;top:-6px;right:-6px;background:var(--lime);color:#0a0a0a;
+  font-size:.66rem;font-weight:800;min-width:20px;height:20px;border-radius:10px;
+  display:grid;place-items:center;padding:0 5px;border:2px solid var(--bg);
+}
+.burger{display:none;width:46px;height:46px;border-radius:14px;border:1px solid var(--line-2);position:relative}
+.burger span,.burger span::before,.burger span::after{position:absolute;left:50%;transform:translateX(-50%);width:18px;height:1.8px;background:var(--text);border-radius:2px;transition:.3s var(--ease);content:''}
+.burger span{top:50%;margin-top:-.9px}
+.burger span::before{top:-6px}
+.burger span::after{top:6px}
+.burger.open span{background:transparent}
+.burger.open span::before{top:0;transform:translateX(-50%) rotate(45deg)}
+.burger.open span::after{top:0;transform:translateX(-50%) rotate(-45deg)}
+
+.mobile-nav{
+  position:fixed;inset:0;z-index:85;background:rgba(10,10,10,.98);backdrop-filter:blur(24px);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+  opacity:0;visibility:hidden;transition:.4s var(--ease);
+}
+.mobile-nav.open{opacity:1;visibility:visible}
+.mobile-nav a{font-family:var(--display);font-size:1.9rem;padding:12px 0;color:#ddd;font-weight:600}
+.mobile-nav a:hover{color:var(--lime)}
+
+/* ==========================================================================
+   PROMO TICKER
+   ========================================================================== */
+.ticker{
+  position:fixed;top:0;left:0;right:0;z-index:100;background:var(--lime);color:#0a0a0a;
+  padding:6px 0;overflow:hidden;font-size:.72rem;font-weight:800;letter-spacing:.06em;
+  text-transform:uppercase;
+}
+.ticker__track{display:flex;gap:50px;width:max-content;animation:marq 30s linear infinite}
+.ticker__track span{display:flex;align-items:center;gap:50px;white-space:nowrap}
+.ticker__track span::after{content:'◆'}
+@keyframes marq{to{transform:translateX(-50%)}}
+.header{padding-top:42px}
+
+/* ==========================================================================
+   HERO
+   ========================================================================== */
+.hero{position:relative;padding:190px 0 100px;overflow:hidden}
+.hero__inner{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center}
+.hero__badge{
+  display:inline-flex;align-items:center;gap:10px;font-size:.7rem;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;
+  padding:9px 18px;border-radius:100px;background:rgba(var(--glow),.1);
+  border:1px solid rgba(var(--glow),.35);color:var(--lime);margin-bottom:26px;
+}
+.hero__badge i{width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 10px var(--lime);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+.hero__title{
+  font-family:var(--display);font-weight:700;letter-spacing:-.045em;
+  font-size:clamp(2.6rem,6.4vw,5.4rem);line-height:.96;margin-bottom:26px;
+}
+.hero__title em{font-style:normal;color:var(--lime);position:relative}
+.hero__title em::after{
+  content:'';position:absolute;left:0;right:0;bottom:.06em;height:.14em;
+  background:var(--lime);opacity:.18;border-radius:4px;z-index:-1;
+}
+.hero__sub{color:#b8b8b8;font-size:1.08rem;max-width:540px;line-height:1.75;margin-bottom:36px}
+.hero__cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:52px}
+.hero__trust{display:flex;gap:36px;flex-wrap:wrap;padding-top:32px;border-top:1px solid var(--line)}
+.hero__trust div b{display:block;font-family:var(--display);font-size:1.6rem;font-weight:700;color:var(--lime);line-height:1}
+.hero__trust div span{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:600}
+
+/* hero visual */
+.hero__visual{position:relative;height:560px}
+.hero__card{
+  position:absolute;border-radius:24px;overflow:hidden;
+  box-shadow:0 40px 90px -30px rgba(0,0,0,.9),0 0 60px -20px rgba(var(--glow),.3);
+  border:1px solid var(--line-2);
+}
+.hero__card img{width:100%;height:100%;object-fit:cover}
+.hero__card--main{
+  width:80%;height:78%;top:6%;right:0;z-index:1;
+  animation:floaty 8s ease-in-out infinite;
+}
+.hero__card--secondary{
+  width:52%;height:52%;bottom:0;left:0;z-index:2;
+  animation:floaty 8s ease-in-out infinite .5s;
+  border-color:rgba(var(--glow),.5);
+}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+.hero__card--tag{
+  position:absolute;top:4%;left:0;z-index:3;
+  background:var(--lime);color:#0a0a0a;padding:12px 20px;border-radius:100px;
+  font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
+  display:flex;align-items:center;gap:8px;
+  box-shadow:0 12px 30px -8px rgba(var(--glow),.7);
+  animation:floaty 8s ease-in-out infinite 1s;
+}
+.hero__card--tag svg{width:15px;height:15px}
+.hero__card--price{
+  position:absolute;bottom:14%;right:4%;z-index:3;
+  background:rgba(16,16,16,.9);backdrop-filter:blur(12px);
+  padding:14px 20px;border-radius:16px;border:1px solid var(--line-2);
+  box-shadow:0 20px 40px -14px rgba(0,0,0,.9);
+  animation:floaty 8s ease-in-out infinite 1.5s;
+}
+.hero__card--price small{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.hero__card--price b{display:block;font-family:var(--display);font-size:1.25rem;color:var(--lime);font-weight:700;margin-top:2px}
+
+/* ==========================================================================
+   TRUST STRIP
+   ========================================================================== */
+.trust-strip{
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  background:linear-gradient(90deg,rgba(var(--glow),.04),transparent,rgba(var(--glow),.04));
+  padding:26px 0;
+}
+.trust-strip__inner{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:36px}
+.trust-item{display:flex;align-items:center;gap:14px}
+.trust-item__ic{
+  width:44px;height:44px;border-radius:13px;background:rgba(var(--glow),.12);
+  border:1px solid rgba(var(--glow),.28);display:grid;place-items:center;
+  color:var(--lime);flex-shrink:0;
+}
+.trust-item__ic svg{width:20px;height:20px}
+.trust-item b{display:block;font-size:.86rem;font-weight:700}
+.trust-item span{font-size:.72rem;color:var(--muted)}
+
+/* ==========================================================================
+   CATEGORIES
+   ========================================================================== */
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
+.cat-card{
+  position:relative;padding:30px 26px;border-radius:20px;background:var(--card);
+  border:1px solid var(--line);transition:.45s var(--ease);cursor:pointer;overflow:hidden;
+}
+.cat-card::before{
+  content:'';position:absolute;inset:0;border-radius:20px;padding:1.5px;
+  background:linear-gradient(140deg,var(--lime),transparent 55%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:.5s;
+}
+.cat-card:hover{transform:translateY(-6px);background:var(--card-2);box-shadow:0 30px 60px -30px rgba(0,0,0,.95)}
+.cat-card:hover::before{opacity:1}
+.cat-card__ic{
+  width:54px;height:54px;border-radius:15px;background:rgba(var(--glow),.1);
+  border:1px solid rgba(var(--glow),.25);display:grid;place-items:center;
+  color:var(--lime);margin-bottom:22px;transition:.5s var(--ease);
+}
+.cat-card:hover .cat-card__ic{transform:scale(1.08) rotate(-5deg)}
+.cat-card__ic svg{width:26px;height:26px}
+.cat-card h3{font-family:var(--display);font-size:1.1rem;font-weight:700;margin-bottom:6px}
+.cat-card p{font-size:.78rem;color:var(--muted);line-height:1.55}
+.cat-card__count{
+  position:absolute;top:22px;right:24px;font-size:.66rem;font-weight:800;
+  letter-spacing:.1em;color:var(--lime);background:rgba(var(--glow),.12);
+  padding:4px 10px;border-radius:100px;
+}
+
+/* ==========================================================================
+   PRODUCTS
+   ========================================================================== */
+.prod-filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:36px}
+.chip{
+  padding:10px 20px;border-radius:100px;border:1px solid var(--line-2);
+  font-size:.78rem;font-weight:600;color:#c8c8c8;transition:.3s var(--ease);
+  letter-spacing:.02em;
+}
+.chip:hover{border-color:var(--lime);color:var(--lime)}
+.chip.active{background:var(--lime);color:#0a0a0a;border-color:var(--lime);font-weight:700}
+
+.prod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:22px}
+.prod-card{
+  position:relative;border-radius:22px;overflow:hidden;
+  background:var(--card);border:1px solid var(--line);
+  display:flex;flex-direction:column;
+  transition:.45s var(--ease);
+  animation:pop .5s var(--ease) both;
+}
+@keyframes pop{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.prod-card:hover{transform:translateY(-6px);border-color:rgba(var(--glow),.4);box-shadow:0 40px 80px -34px rgba(0,0,0,.95),0 0 50px -20px rgba(var(--glow),.35)}
+.prod-card__media{
+  position:relative;aspect-ratio:1/1;overflow:hidden;
+  background:#0f0f0f;padding:16px;
+}
+.prod-card__media img{width:100%;height:100%;object-fit:cover;border-radius:14px;transition:transform .8s var(--ease)}
+.prod-card:hover .prod-card__media img{transform:scale(1.06)}
+.prod-card__badges{position:absolute;top:16px;left:16px;display:flex;flex-direction:column;gap:6px;z-index:2}
+.badge{
+  font-size:.6rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+  padding:5px 11px;border-radius:100px;
+}
+.badge--hot{background:var(--coral);color:#fff}
+.badge--new{background:var(--lime);color:#0a0a0a}
+.badge--swap{background:var(--amber);color:#0a0a0a}
+.badge--oos{background:rgba(255,255,255,.15);color:#ddd;backdrop-filter:blur(6px)}
+.prod-card__fav{
+  position:absolute;top:16px;right:16px;width:34px;height:34px;border-radius:50%;
+  background:rgba(10,10,10,.7);backdrop-filter:blur(8px);
+  border:1px solid var(--line-2);display:grid;place-items:center;
+  color:#ddd;transition:.3s;z-index:2;
+}
+.prod-card__fav:hover,.prod-card__fav.active{color:var(--coral);border-color:var(--coral)}
+.prod-card__fav svg{width:15px;height:15px}
+.prod-card__body{padding:20px 22px 22px;display:flex;flex-direction:column;gap:10px;flex:1}
+.prod-card__brand{font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--lime);font-weight:800}
+.prod-card__name{font-family:var(--display);font-size:1.05rem;font-weight:600;line-height:1.3;letter-spacing:-.01em}
+.prod-card__meta{display:flex;gap:8px;flex-wrap:wrap;font-size:.7rem;color:var(--muted)}
+.prod-card__meta span{background:rgba(255,255,255,.04);padding:3px 9px;border-radius:100px;border:1px solid var(--line)}
+.prod-card__price{display:flex;align-items:baseline;gap:8px;margin-top:4px}
+.prod-card__price b{font-family:var(--display);font-size:1.3rem;font-weight:700;color:var(--lime);letter-spacing:-.01em}
+.prod-card__price s{font-size:.8rem;color:var(--muted);text-decoration:line-through}
+.prod-card__actions{display:flex;gap:8px;margin-top:auto;padding-top:14px}
+
+/* ==========================================================================
+   SWAP SECTION
+   ========================================================================== */
+.swap{position:relative;overflow:hidden;padding:110px 0;
+  background:radial-gradient(ellipse at 50% 50%,rgba(var(--glow),.06),transparent 60%)}
+.swap__inner{display:grid;grid-template-columns:1fr 1.1fr;gap:70px;align-items:center}
+.swap__visual{position:relative;height:480px}
+.swap__phone{
+  position:absolute;top:50%;left:50%;width:190px;height:340px;border-radius:34px;
+  padding:9px;background:linear-gradient(160deg,#2a2a2a,#0a0a0a);
+  transform:translate(-50%,-50%) rotate(-8deg);
+  box-shadow:0 40px 80px -30px rgba(0,0,0,.9);
+}
+.swap__phone::before{
+  content:'';position:absolute;top:0;left:0;right:0;bottom:0;border-radius:34px;padding:2px;
+  background:linear-gradient(160deg,rgba(var(--glow),.5),transparent);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;
+}
+.swap__phone__screen{border-radius:26px;overflow:hidden;height:100%}
+.swap__phone__screen img{width:100%;height:100%;object-fit:cover}
+.swap__phone--old{
+  transform:translate(-50%,-50%) rotate(-14deg) translateX(-90px);
+  filter:grayscale(.4) brightness(.7);z-index:1;
+}
+.swap__phone--new{
+  transform:translate(-50%,-50%) rotate(8deg) translateX(70px);z-index:2;
+  box-shadow:0 40px 90px -30px rgba(var(--glow),.6),0 0 80px -20px rgba(var(--glow),.5);
+}
+.swap__arrows{
+  position:absolute;top:50%;left:50%;z-index:3;
+  transform:translate(-50%,-50%);
+  width:70px;height:70px;border-radius:50%;background:var(--lime);
+  display:grid;place-items:center;color:#0a0a0a;
+  box-shadow:0 20px 40px -10px rgba(var(--glow),.8);
+  animation:swapPulse 2.5s ease-in-out infinite;
+}
+.swap__arrows svg{width:30px;height:30px}
+@keyframes swapPulse{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.1)}}
+.swap__steps{display:flex;flex-direction:column;gap:18px;margin-top:34px}
+.swap-step{display:flex;gap:18px;padding:20px;border-radius:16px;background:var(--card);border:1px solid var(--line);transition:.35s var(--ease)}
+.swap-step:hover{border-color:rgba(var(--glow),.4);transform:translateX(6px)}
+.swap-step__num{
+  width:42px;height:42px;border-radius:12px;flex-shrink:0;
+  background:rgba(var(--glow),.12);border:1px solid rgba(var(--glow),.3);
+  display:grid;place-items:center;color:var(--lime);
+  font-family:var(--display);font-weight:800;font-size:1.05rem;
+}
+.swap-step h4{font-size:.98rem;font-weight:700;margin-bottom:4px}
+.swap-step p{font-size:.82rem;color:var(--muted);line-height:1.55}
+
+/* ==========================================================================
+   TESTIMONIALS
+   ========================================================================== */
+.tst-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px}
+.tst{padding:32px 30px;border-radius:20px;background:var(--card);border:1px solid var(--line);position:relative;transition:.35s var(--ease)}
+.tst:hover{border-color:rgba(var(--glow),.35);transform:translateY(-4px)}
+.tst__stars{color:var(--lime);letter-spacing:2px;font-size:.88rem;margin-bottom:14px}
+.tst p{color:#d0d0d0;font-size:.92rem;line-height:1.75;margin-bottom:20px}
+.tst__who{display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid var(--line)}
+.tst__av{width:42px;height:42px;border-radius:50%;background:var(--lime);color:#0a0a0a;display:grid;place-items:center;font-weight:800;font-size:.84rem}
+.tst__who b{display:block;font-size:.88rem}
+.tst__who small{font-size:.72rem;color:var(--muted)}
+
+/* ==========================================================================
+   VISIT / LOCATION
+   ========================================================================== */
+.visit{position:relative;overflow:hidden;border-radius:26px;padding:70px 60px;
+  background:linear-gradient(140deg,var(--card-2),var(--card));border:1px solid var(--line)}
+.visit__grid{display:grid;grid-template-columns:1.2fr 1fr;gap:60px;align-items:center;position:relative;z-index:2}
+.visit h2{font-family:var(--display);font-size:clamp(1.8rem,3.8vw,2.8rem);font-weight:700;letter-spacing:-.02em;margin-bottom:16px}
+.visit p{color:#b8b8b8;line-height:1.75;margin-bottom:26px}
+.visit__info{display:flex;flex-direction:column;gap:14px;margin-bottom:30px}
+.visit__row{display:flex;align-items:center;gap:12px;font-size:.9rem}
+.visit__row svg{width:18px;height:18px;color:var(--lime);flex-shrink:0}
+.visit__map{
+  aspect-ratio:1/1;border-radius:20px;overflow:hidden;border:1px solid var(--line);
+  background:#0f0f0f;display:grid;place-items:center;position:relative;
+}
+.visit__map img{width:100%;height:100%;object-fit:cover;opacity:.6}
+.visit__map__pin{
+  position:absolute;inset:0;display:grid;place-items:center;
+  background:radial-gradient(circle,rgba(var(--glow),.2),transparent 60%);
+}
+.visit__map__pin svg{width:50px;height:50px;color:var(--lime);filter:drop-shadow(0 0 20px rgba(var(--glow),.8))}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.footer{border-top:1px solid var(--line);padding:70px 0 34px;margin-top:80px}
+.footer__grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:44px}
+.footer h4{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:20px;font-weight:800}
+.footer ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px}
+.footer ul a{font-size:.87rem;color:#c0c0c0;transition:.3s}
+.footer ul a:hover{color:var(--lime)}
+.footer__about{color:var(--muted);font-size:.88rem;line-height:1.8;margin-top:20px;max-width:320px}
+.socials{display:flex;gap:10px;margin-top:22px}
+.socials a{width:42px;height:42px;border-radius:12px;border:1px solid var(--line-2);display:grid;place-items:center;transition:.3s;color:#c0c0c0}
+.socials a:hover{background:var(--lime);color:#0a0a0a;border-color:var(--lime);transform:translateY(-3px)}
+.socials svg{width:17px;height:17px}
+.footer__bottom{margin-top:52px;padding-top:26px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;font-size:.78rem;color:var(--muted)}
+.footer__bottom a:hover{color:var(--lime)}
+
+/* ==========================================================================
+   FLOATING WHATSAPP
+   ========================================================================== */
+.fab-wa{
+  position:fixed;bottom:26px;right:26px;z-index:88;
+  display:flex;align-items:center;gap:10px;
+  padding:14px 22px 14px 16px;border-radius:100px;
+  background:linear-gradient(135deg,#25D366,#1a9e4b);color:#fff;
+  box-shadow:0 16px 40px -10px rgba(37,211,102,.7);
+  transition:.35s var(--ease);font-weight:700;font-size:.84rem;
+}
+.fab-wa:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 24px 50px -10px rgba(37,211,102,.9)}
+.fab-wa__ic{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.2);display:grid;place-items:center;flex-shrink:0}
+.fab-wa__ic svg{width:18px;height:18px}
+
+/* ==========================================================================
+   CART DRAWER
+   ========================================================================== */
+.cart-overlay{
+  position:fixed;inset:0;z-index:400;background:rgba(0,0,0,.7);backdrop-filter:blur(6px);
+  opacity:0;visibility:hidden;transition:.35s var(--ease);
+}
+.cart-overlay.open{opacity:1;visibility:visible}
+.cart-drawer{
+  position:fixed;top:0;right:0;bottom:0;width:100%;max-width:440px;z-index:401;
+  background:var(--bg-2);border-left:1px solid var(--line);
+  transform:translateX(100%);transition:.45s var(--ease);
+  display:flex;flex-direction:column;box-shadow:-30px 0 80px -20px rgba(0,0,0,.9);
+}
+.cart-drawer.open{transform:none}
+.cart-drawer__head{display:flex;align-items:center;justify-content:space-between;padding:24px 26px;border-bottom:1px solid var(--line)}
+.cart-drawer__head h3{font-family:var(--display);font-size:1.25rem;font-weight:700}
+.cart-drawer__head small{display:block;font-size:.72rem;color:var(--muted);font-weight:500;margin-top:2px;letter-spacing:0}
+.cart-drawer__close{width:38px;height:38px;border-radius:50%;border:1px solid var(--line-2);display:grid;place-items:center;font-size:1rem;transition:.3s;color:#ddd}
+.cart-drawer__close:hover{background:var(--lime);color:#0a0a0a;border-color:var(--lime)}
+.cart-drawer__body{flex:1;overflow-y:auto;padding:22px 26px}
+.cart-item{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+.cart-item:last-child{border-bottom:0}
+.cart-item__media{width:72px;height:72px;border-radius:12px;overflow:hidden;background:#0f0f0f;flex-shrink:0}
+.cart-item__media img{width:100%;height:100%;object-fit:cover}
+.cart-item__info{flex:1;min-width:0}
+.cart-item__name{font-weight:600;font-size:.9rem;line-height:1.3;margin-bottom:4px}
+.cart-item__price{color:var(--lime);font-weight:700;font-size:.9rem}
+.cart-item__qty{display:flex;align-items:center;gap:8px;margin-top:8px}
+.cart-item__qty button{width:26px;height:26px;border-radius:8px;background:rgba(255,255,255,.06);border:1px solid var(--line-2);display:grid;place-items:center;font-size:.9rem;color:#ddd}
+.cart-item__qty button:hover{background:var(--lime);color:#0a0a0a;border-color:var(--lime)}
+.cart-item__qty span{min-width:24px;text-align:center;font-weight:700;font-size:.85rem}
+.cart-item__x{color:#ff8080;font-size:1.1rem;line-height:1;padding:4px}
+.cart-empty{text-align:center;padding:60px 20px;color:var(--muted)}
+.cart-empty svg{width:60px;height:60px;opacity:.2;margin:0 auto 20px;color:var(--lime)}
+.cart-empty p{font-size:.9rem}
+.cart-drawer__foot{padding:22px 26px;border-top:1px solid var(--line);background:var(--card)}
+.cart-total{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:18px}
+.cart-total span{font-size:.82rem;color:var(--muted);font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.cart-total b{font-family:var(--display);font-size:1.6rem;color:var(--lime);font-weight:700}
+
+/* ==========================================================================
+   MODAL (Checkout, Admin Login, Product Detail)
+   ========================================================================== */
+.modal{
+  position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.85);backdrop-filter:blur(10px);
+  display:flex;align-items:center;justify-content:center;padding:20px;
+  opacity:0;visibility:hidden;transition:.35s var(--ease);
+  overflow-y:auto;
+}
+.modal.open{opacity:1;visibility:visible}
+.modal__card{
+  width:100%;max-width:560px;background:var(--card);border:1px solid var(--line-2);
+  border-radius:24px;padding:32px;box-shadow:0 50px 120px -30px #000;
+  transform:translateY(20px) scale(.96);transition:.4s var(--ease);
+  max-height:92vh;overflow-y:auto;position:relative;
+}
+.modal.open .modal__card{transform:none}
+.modal__card--wide{max-width:760px}
+.modal__close{position:absolute;top:20px;right:20px;width:38px;height:38px;border-radius:50%;border:1px solid var(--line-2);display:grid;place-items:center;font-size:1rem;transition:.3s;color:#ddd}
+.modal__close:hover{background:var(--lime);color:#0a0a0a;border-color:var(--lime)}
+.modal__head{margin-bottom:22px;padding-right:44px}
+.modal__head h3{font-family:var(--display);font-size:1.5rem;font-weight:700;letter-spacing:-.015em}
+.modal__head p{font-size:.85rem;color:var(--muted);margin-top:6px}
+
+/* product detail modal */
+.pd{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+.pd__media{border-radius:18px;overflow:hidden;background:#0f0f0f;aspect-ratio:1/1;padding:16px}
+.pd__media img{width:100%;height:100%;object-fit:cover;border-radius:12px}
+.pd__info h2{font-family:var(--display);font-size:1.6rem;font-weight:700;line-height:1.2;letter-spacing:-.02em;margin-bottom:12px}
+.pd__brand{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--lime);font-weight:800;margin-bottom:8px}
+.pd__price{font-family:var(--display);font-size:1.9rem;font-weight:700;color:var(--lime);margin:16px 0 6px;letter-spacing:-.02em}
+.pd__old{font-size:.9rem;color:var(--muted);text-decoration:line-through;margin-bottom:18px}
+.pd__specs{display:flex;flex-direction:column;gap:10px;margin:18px 0;padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.pd__spec{display:flex;justify-content:space-between;font-size:.86rem}
+.pd__spec span:first-child{color:var(--muted)}
+.pd__spec span:last-child{font-weight:600}
+.pd__desc{font-size:.9rem;color:#c0c0c0;line-height:1.75;margin-bottom:22px}
+.pd__actions{display:flex;gap:10px;flex-wrap:wrap}
+
+/* form fields */
+.field{margin-bottom:16px;display:block}
+.field > span{display:block;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;font-weight:700}
+.field input,.field textarea,.field select{
+  width:100%;padding:13px 15px;border-radius:12px;background:#0d0d0d;
+  border:1px solid var(--line-2);transition:.3s;font-size:.92rem;outline:none;color:var(--text);
+}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--lime);box-shadow:0 0 0 4px rgba(var(--glow),.14)}
+.field textarea{resize:vertical;min-height:90px;font-family:inherit}
+.row-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.order-summary{background:#0d0d0d;border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:20px}
+.order-summary h4{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;font-weight:800}
+.order-line{display:flex;justify-content:space-between;font-size:.86rem;padding:6px 0}
+.order-line.total{border-top:1px solid var(--line);margin-top:10px;padding-top:12px;font-weight:700;font-size:1rem;color:var(--lime)}
+
+/* ==========================================================================
+   TOAST
+   ========================================================================== */
+.toast{
+  position:fixed;bottom:28px;left:50%;transform:translate(-50%,30px);
+  z-index:900;background:var(--card-2);border:1px solid var(--line-2);
+  padding:14px 24px;border-radius:100px;font-size:.85rem;font-weight:600;
+  opacity:0;transition:.4s var(--ease);pointer-events:none;
+  box-shadow:0 24px 50px -18px #000;display:flex;align-items:center;gap:10px;
+  max-width:90vw;
+}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.toast::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--lime);box-shadow:0 0 10px var(--lime);flex-shrink:0}
+
+/* ==========================================================================
+   REVEAL
+   ========================================================================== */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+
+/* ==========================================================================
+   ADMIN
+   ========================================================================== */
+.admin{position:fixed;inset:0;z-index:600;background:var(--bg);display:none;overflow:hidden}
+.admin.open{display:block}
+.admin__gate{position:absolute;inset:0;display:grid;place-items:center;padding:24px;
+  background:radial-gradient(circle at 50% 30%,rgba(var(--glow),.1),transparent 55%)}
+.gate__card{width:100%;max-width:420px;padding:44px 36px;border-radius:24px;background:var(--card);border:1px solid var(--line-2);text-align:center;box-shadow:0 50px 120px -40px #000}
+.gate__logo{width:64px;height:64px;margin:0 auto 22px}
+.gate__logo svg,.gate__logo img{width:100%;height:100%;object-fit:contain}
+.gate__card h2{font-family:var(--display);font-size:1.6rem;font-weight:700;margin-bottom:10px}
+.gate__card p{color:var(--muted);font-size:.86rem;margin-bottom:24px}
+.gate__card input{width:100%;padding:14px 16px;border-radius:12px;background:#0d0d0d;border:1px solid var(--line-2);text-align:center;letter-spacing:.2em;outline:none;margin-bottom:14px;transition:.3s;color:var(--text)}
+.gate__card input:focus{border-color:var(--lime)}
+.gate__hint{margin-top:20px !important;font-size:.75rem !important}
+.gate__hint code{background:rgba(var(--glow),.14);color:var(--lime);padding:4px 10px;border-radius:6px;letter-spacing:.08em;font-weight:700}
+.gate__err{color:#ff8080;font-size:.8rem;margin-top:12px;display:none}
+.gate__err.show{display:block}
+
+.admin__shell{display:grid;grid-template-columns:250px 1fr;height:100%}
+.admin__side{border-right:1px solid var(--line);background:#0d0d0d;display:flex;flex-direction:column;padding:24px 18px;overflow-y:auto}
+.admin__brand{display:flex;align-items:center;gap:11px;padding:0 8px 22px;border-bottom:1px solid var(--line);margin-bottom:20px}
+.admin__brand .mk{width:36px;height:36px;flex-shrink:0}
+.admin__brand .mk svg,.admin__brand .mk img{width:100%;height:100%;object-fit:contain}
+.admin__brand b{font-size:.82rem;font-weight:700;letter-spacing:-.01em;display:block}
+.admin__brand small{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--lime);font-weight:700}
+.admin__tabs{display:flex;flex-direction:column;gap:4px;flex:1}
+.admin__tabs button{
+  display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:11px;
+  font-size:.85rem;color:#a8a8a8;text-align:left;transition:.25s var(--ease);font-weight:500;
+}
+.admin__tabs button svg{width:17px;height:17px;opacity:.75;flex-shrink:0}
+.admin__tabs button:hover{background:rgba(255,255,255,.05);color:#fff}
+.admin__tabs button.active{background:rgba(var(--glow),.15);color:var(--lime);font-weight:600}
+.admin__tabs button.active svg{opacity:1}
+.admin__side-foot{display:flex;flex-direction:column;gap:8px;padding-top:16px;border-top:1px solid var(--line);margin-top:14px}
+
+.admin__main{display:flex;flex-direction:column;overflow:hidden}
+.admin__top{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:20px 32px;border-bottom:1px solid var(--line);background:#0d0d0d}
+.admin__top h2{font-family:var(--display);font-size:1.3rem;font-weight:700}
+.admin__top p{font-size:.78rem;color:var(--muted);margin-top:2px}
+.admin__top-actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.admin__panels{flex:1;overflow-y:auto;padding:28px 32px 90px}
+.panel{display:none;animation:fadeUp .35s var(--ease)}
+.panel.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.panel h3{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--lime);margin:28px 0 14px;font-weight:800}
+.panel h3:first-child{margin-top:0}
+.card-box{padding:22px;border-radius:16px;background:var(--card);border:1px solid var(--line);margin-bottom:18px}
+.field-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field-grid .full{grid-column:1/-1}
+.hint{font-size:.75rem;color:var(--muted);margin-top:10px;line-height:1.6}
+.hint a{color:var(--lime)}
+
+/* dashboard stats */
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-bottom:24px}
+.stat-card{padding:22px;border-radius:16px;background:var(--card);border:1px solid var(--line);position:relative;overflow:hidden}
+.stat-card::before{content:'';position:absolute;top:-40%;right:-20%;width:140px;height:140px;border-radius:50%;background:rgba(var(--glow),.08);filter:blur(30px)}
+.stat-card small{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:700;display:block;margin-bottom:10px}
+.stat-card b{font-family:var(--display);font-size:2rem;font-weight:700;color:var(--lime);letter-spacing:-.02em;display:block;line-height:1}
+
+/* admin product rows */
+.ap-row{display:flex;gap:16px;padding:14px;border-radius:14px;background:#0d0d0d;border:1px solid var(--line);margin-bottom:10px;align-items:flex-start;transition:.25s}
+.ap-row:hover{border-color:rgba(var(--glow),.3)}
+.ap-row__img{width:70px;height:70px;border-radius:12px;overflow:hidden;background:#141414;flex-shrink:0}
+.ap-row__img img{width:100%;height:100%;object-fit:cover}
+.ap-row__info{flex:1;min-width:0}
+.ap-row__brand{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--lime);font-weight:800}
+.ap-row__name{font-weight:600;font-size:.92rem;margin-top:3px;line-height:1.3}
+.ap-row__meta{font-size:.72rem;color:var(--muted);margin-top:5px;display:flex;gap:10px;flex-wrap:wrap}
+.ap-row__price{font-family:var(--display);font-weight:700;color:var(--lime);font-size:.95rem;margin-top:6px}
+.ap-row__actions{display:flex;gap:6px;flex-shrink:0}
+.ap-row__actions button{width:32px;height:32px;border-radius:9px;border:1px solid var(--line-2);display:grid;place-items:center;transition:.25s;color:#a8a8a8}
+.ap-row__actions button:hover{border-color:var(--lime);color:var(--lime)}
+.ap-row__actions button.danger:hover{border-color:#ff5252;color:#ff5252}
+.ap-row__actions svg{width:14px;height:14px}
+
+/* admin order rows */
+.ao-row{padding:18px;border-radius:14px;background:#0d0d0d;border:1px solid var(--line);margin-bottom:10px;transition:.25s}
+.ao-row:hover{border-color:rgba(var(--glow),.3)}
+.ao-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:12px}
+.ao-id{font-family:var(--display);font-weight:700;font-size:.95rem;color:var(--lime)}
+.ao-date{font-size:.72rem;color:var(--muted);margin-top:2px}
+.ao-status{
+  font-size:.62rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+  padding:5px 12px;border-radius:100px;
+}
+.ao-status.pending{background:rgba(255,179,71,.15);color:#ffb347;border:1px solid rgba(255,179,71,.4)}
+.ao-status.confirmed{background:rgba(200,255,61,.15);color:var(--lime);border:1px solid rgba(200,255,61,.4)}
+.ao-status.shipped{background:rgba(100,180,255,.15);color:#64b4ff;border:1px solid rgba(100,180,255,.4)}
+.ao-status.delivered{background:rgba(80,220,140,.15);color:#50dc8c;border:1px solid rgba(80,220,140,.4)}
+.ao-status.cancelled{background:rgba(255,90,90,.15);color:#ff5a5a;border:1px solid rgba(255,90,90,.4)}
+.ao-body{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:12px}
+.ao-block small{font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:700;display:block;margin-bottom:4px}
+.ao-block div{font-size:.85rem;line-height:1.5}
+.ao-items{background:#141414;border-radius:10px;padding:12px;margin-bottom:12px}
+.ao-item{display:flex;justify-content:space-between;font-size:.82rem;padding:4px 0}
+.ao-item span:last-child{color:var(--lime);font-weight:600}
+.ao-total{display:flex;justify-content:space-between;padding-top:8px;margin-top:6px;border-top:1px solid var(--line);font-weight:700}
+.ao-actions{display:flex;gap:8px;flex-wrap:wrap}
+
+/* image preview */
+.img-preview{width:120px;height:120px;border-radius:14px;border:1px dashed var(--line-2);background:#0d0d0d;display:grid;place-items:center;overflow:hidden;flex-shrink:0;color:#4a4a4a;font-size:.68rem;text-align:center;padding:8px}
+.img-preview img{width:100%;height:100%;object-fit:cover}
+
+/* storage meter */
+.storage-meter{
+  display:inline-flex;align-items:center;gap:8px;font-size:.68rem;font-weight:700;
+  color:#c8c8c8;background:#0d0d0d;border:1px solid var(--line);padding:7px 13px;border-radius:100px;
+}
+.storage-meter b{font-weight:800;color:var(--lime)}
+.storage-meter.warn{border-color:rgba(255,179,71,.5);color:#ffb870}
+.storage-meter.warn b{color:#ffb870}
+.storage-meter.crit{border-color:rgba(255,80,80,.6);color:#ff8080}
+.storage-meter.crit b{color:#ff6060}
+.storage-bar{width:56px;height:6px;border-radius:3px;background:rgba(255,255,255,.1);overflow:hidden;display:inline-block}
+.storage-bar i{display:block;height:100%;border-radius:3px;background:var(--lime);transition:width .4s}
+.storage-meter.warn .storage-bar i{background:#ffb870}
+.storage-meter.crit .storage-bar i{background:#ff6060}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width:1024px){
+  .hero__inner{grid-template-columns:1fr;gap:50px}
+  .hero__visual{height:440px;max-width:520px;margin:0 auto}
+  .swap__inner{grid-template-columns:1fr;gap:50px}
+  .swap__visual{max-width:520px;margin:0 auto}
+  .visit__grid{grid-template-columns:1fr;gap:36px}
+  .footer__grid{grid-template-columns:1fr 1fr;gap:36px}
+  .admin__shell{grid-template-columns:1fr}
+  .admin__side{flex-direction:row;align-items:center;padding:14px 16px;border-right:0;border-bottom:1px solid var(--line);overflow-x:auto;gap:12px}
+  .admin__brand{border:0;padding:0 12px 0 0;margin:0;border-right:1px solid var(--line);flex-shrink:0}
+  .admin__brand .txt{display:none}
+  .admin__tabs{flex-direction:row;flex:0 0 auto;gap:4px}
+  .admin__tabs button{white-space:nowrap;padding:9px 13px}
+  .admin__tabs button span{display:none}
+  .admin__side-foot{flex-direction:row;border:0;padding:0;margin:0;flex-shrink:0}
+  .admin__side-foot .btn span{display:none}
+}
+@media (max-width:860px){
+  .nav{display:none}
+  .burger{display:block}
+  .header__actions .btn--ghost,.header__actions .btn--wa{display:none}
+  .section{padding:80px 0}
+  .hero{padding:150px 0 60px}
+  .pd{grid-template-columns:1fr}
+  .modal__card{padding:24px}
+  .visit{padding:50px 26px}
+  .row-2{grid-template-columns:1fr}
+  .field-grid{grid-template-columns:1fr}
+  .admin__panels{padding:22px 18px 90px}
+  .admin__top{padding:16px 18px}
+  .footer__grid{grid-template-columns:1fr}
+  .ao-body{grid-template-columns:1fr;gap:10px}
+  .fab-wa span{display:none}
+  .fab-wa{padding:14px;width:56px;height:56px;justify-content:center}
+}
+@media (max-width:520px){
+  .wrap{padding:0 18px}
+  .hero__title{font-size:2.4rem}
+  .hero__trust{gap:24px}
+  .hero__trust div b{font-size:1.4rem}
+  .prod-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px}
+  .prod-card__body{padding:16px 16px 18px}
+  .prod-card__name{font-size:.94rem}
+  .prod-card__price b{font-size:1.1rem}
+  .prod-card__actions{flex-direction:column;gap:6px}
+  .prod-card__actions .btn{padding:9px 14px;font-size:.72rem}
+  .g-grid{grid-template-columns:1fr}
+  .ticker{font-size:.64rem}
+  .header{padding-top:38px}
+}
+</style>
+</head>
+<body>
+
+<div class="noise"></div>
+<div class="grid-bg"></div>
+<div class="glow glow--1"></div>
+<div class="glow glow--2"></div>
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- TICKER -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker__track" id="tickerTrack"></div>
+</div>
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <div class="wrap header__inner">
+    <a href="#top" class="brand">
+      <span class="brand__mark" data-logo></span>
+      <span class="brand__text">
+        <span class="brand__name">Plug Gadgets</span>
+        <span class="brand__sub">Lagos · Computer Village</span>
+      </span>
+    </a>
+    <nav class="nav">
+      <a href="#shop">Shop</a>
+      <a href="#swap">Swap</a>
+      <a href="#why">Why Us</a>
+      <a href="#visit">Visit Store</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="header__actions">
+      <button class="cart-btn" id="cartBtn" aria-label="Cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h2l2.4 12.4A2 2 0 0 0 9.36 17H19a2 2 0 0 0 1.96-1.6L22.5 8H6.16"/><circle cx="9.5" cy="20" r="1.5"/><circle cx="18.5" cy="20" r="1.5"/></svg>
+        <span class="cart-count" id="cartCount" style="display:none">0</span>
+      </button>
+      <a href="https://wa.me/2348012345678" target="_blank" rel="noopener" class="btn btn--wa btn--sm">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11.6 11.6 0 0 0 3.4 17.9L2 22l4.2-1.4A11.6 11.6 0 0 0 12.1 22h.1a11.7 11.7 0 0 0 8.3-19.5z"/></svg>
+        Chat Now
+      </a>
+      <button class="btn btn--ghost btn--sm" id="openAdmin" style="display:none">Admin</button>
+      <button class="burger" id="burger" aria-label="Menu"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#shop">Shop</a>
+  <a href="#swap">Swap</a>
+  <a href="#why">Why Us</a>
+  <a href="#visit">Visit Store</a>
+  <a href="#contact">Contact</a>
+  <button class="btn btn--primary" id="openAdminMobile" style="margin-top:20px">Admin</button>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="wrap hero__inner">
+    <div>
+      <p class="hero__badge"><i></i> Verified Plug · Lagos Computer Village</p>
+      <h1 class="hero__title">Your trusted <em>plug</em> for iPhones, laptops & accessories.</h1>
+      <p class="hero__sub">Brand new and UK-used devices at Computer Village prices. Direct phone swapping available — walk in with your old phone, walk out with a new one.</p>
+      <div class="hero__cta">
+        <a href="#shop" class="btn btn--primary">Browse Shop</a>
+        <a href="https://wa.me/2348012345678" target="_blank" rel="noopener" class="btn btn--ghost">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11.6 11.6 0 0 0 3.4 17.9L2 22l4.2-1.4A11.6 11.6 0 0 0 12.1 22h.1a11.7 11.7 0 0 0 8.3-19.5z"/></svg>
+          Message on WhatsApp
+        </a>
+      </div>
+      <div class="hero__trust">
+        <div><b>5K+</b><span>Happy buyers</span></div>
+        <div><b>100%</b><span>Verified devices</span></div>
+        <div><b>24hr</b><span>Lagos delivery</span></div>
+      </div>
+    </div>
+
+    <div class="hero__visual">
+      <div class="hero__card hero__card--main">
+        <img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=900&q=80" alt="iPhone Pro">
+      </div>
+      <div class="hero__card hero__card--secondary">
+        <img src="https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?auto=format&fit=crop&w=700&q=80" alt="AirPods Pro">
+      </div>
+      <div class="hero__card--tag">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+        Sealed & UK-Used
+      </div>
+      <div class="hero__card--price">
+        <small>iPhone 15 Pro Max</small>
+        <b>₦1,850,000</b>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="wrap trust-strip__inner">
+    <div class="trust-item">
+      <div class="trust-item__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 7v6c0 5 3.8 9.3 9 11 5.2-1.7 9-6 9-11V7z"/><path d="m9 12 2 2 4-4"/></svg></div>
+      <div><b>100% Genuine</b><span>Verified & Tested</span></div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-item__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/><rect x="3" y="3" width="18" height="18" rx="2"/></svg></div>
+      <div><b>Same-Day Lagos</b><span>Delivery available</span></div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-item__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg></div>
+      <div><b>Swap Available</b><span>Trade in your old device</span></div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-item__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5.5 3.8 10.7 8 12 4.2-1.3 8-6.5 8-12V6z"/></svg></div>
+      <div><b>Warranty</b><span>Up to 6 months</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- CATEGORIES -->
+<section class="section" id="categories">
+  <div class="wrap">
+    <div class="head reveal">
+      <div>
+        <span class="eyebrow">Shop by Category</span>
+        <h2 class="section-title">Everything Apple.<br>One plug.</h2>
+      </div>
+      <p class="section-lead">From the newest iPhone to the smallest accessory — we stock it, test it, and stand behind it.</p>
+    </div>
+    <div class="cat-grid" id="catGrid"></div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="section" id="shop">
+  <div class="wrap">
+    <div class="head reveal">
+      <div>
+        <span class="eyebrow">Our Stock</span>
+        <h2 class="section-title">Featured <em style="color:var(--lime);font-style:normal">Products</em></h2>
+        <p class="section-lead">Real prices. Real stock. Updated live from our Ikeja shop.</p>
+      </div>
+    </div>
+    <div class="prod-filters" id="prodFilters"></div>
+    <div class="prod-grid" id="prodGrid"></div>
+  </div>
+</section>
+
+<!-- SWAP -->
+<section class="swap" id="swap">
+  <div class="wrap swap__inner">
+    <div class="swap__visual">
+      <div class="swap__phone swap__phone--old">
+        <div class="swap__phone__screen">
+          <img src="https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?auto=format&fit=crop&w=500&q=80" alt="Old phone">
+        </div>
+      </div>
+      <div class="swap__phone swap__phone--new">
+        <div class="swap__phone__screen">
+          <img src="https://images.unsplash.com/photo-1591337676887-a217a6970a8a?auto=format&fit=crop&w=500&q=80" alt="New phone">
+        </div>
+      </div>
+      <div class="swap__arrows">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16H4l3 3M4 16h16M17 8h3l-3-3M20 8H4"/></svg>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <span class="eyebrow">Direct Swapping</span>
+      <h2 class="section-title">Bring your old phone.<br>Walk out with a new one.</h2>
+      <p class="section-lead" style="margin-top:18px">We buy, we trade, we swap — instantly. No stress, no long story.</p>
+      <div class="swap__steps">
+        <div class="swap-step">
+          <div class="swap-step__num">01</div>
+          <div><h4>Send a photo of your device</h4><p>WhatsApp us a photo + the model name and we'll value it instantly.</p></div>
+        </div>
+        <div class="swap-step">
+          <div class="swap-step__num">02</div>
+          <div><h4>Get your trade-in value</h4><p>You'll know exactly what your old phone is worth in cash or against any device in our shop.</p></div>
+        </div>
+        <div class="swap-step">
+          <div class="swap-step__num">03</div>
+          <div><h4>Top up the difference</h4><p>Pay the balance (or receive cash if your device is worth more) and walk out with your upgrade.</p></div>
+        </div>
+        <div class="swap-step">
+          <div class="swap-step__num">04</div>
+          <div><h4>Enjoy your new phone</h4><p>Setup done free. Warranty included. Data transfer from old to new — on the house.</p></div>
+        </div>
+      </div>
+      <a href="https://wa.me/2348012345678?text=Hi%20Plug%20Gadgets%2C%20I%20want%20to%20swap%20my%20device" target="_blank" rel="noopener" class="btn btn--primary" style="margin-top:30px">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11.6 11.6 0 0 0 3.4 17.9L2 22l4.2-1.4A11.6 11.6 0 0 0 12.1 22h.1a11.7 11.7 0 0 0 8.3-19.5z"/></svg>
+        Start My Swap
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section" id="why">
+  <div class="wrap">
+    <div class="head reveal">
+      <div>
+        <span class="eyebrow">Real Buyers</span>
+        <h2 class="section-title">Loved across Lagos.</h2>
+      </div>
+    </div>
+    <div class="tst-grid" id="tstGrid"></div>
+  </div>
+</section>
+
+<!-- VISIT -->
+<section class="section" id="visit">
+  <div class="wrap">
+    <div class="visit reveal">
+      <div class="visit__grid">
+        <div>
+          <span class="eyebrow">Visit Our Store</span>
+          <h2>Come and see. Touch the devices. Meet the plug.</h2>
+          <p>We're inside Lagos Computer Village, Ikeja — the heart of Nigeria's tech trade. Walk in, test every device, and walk out with confidence.</p>
+          <div class="visit__info">
+            <div class="visit__row">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6 7-11a7 7 0 1 0-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+              <span>Computer Village, Ikeja, Lagos, Nigeria</span>
+            </div>
+            <div class="visit__row">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+              <span>Mon – Sat · 9:00 AM – 7:00 PM</span>
+            </div>
+            <div class="visit__row">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h4l2 5-3 2a12 12 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 4 5a2 2 0 0 1 2-2z"/></svg>
+              <span>+234 801 234 5678</span>
+            </div>
+          </div>
+          <a href="https://wa.me/2348012345678" target="_blank" rel="noopener" class="btn btn--primary">Chat Us Now</a>
+        </div>
+        <div class="visit__map">
+          <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=800&q=80" alt="Map">
+          <div class="visit__map__pin">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 22s8-6.5 8-12A8 8 0 0 0 4 10c0 5.5 8 12 8 12zm0-18a4 4 0 1 1 0 8 4 4 0 0 1 0-8z"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT / ORDER FORM -->
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="head reveal">
+      <div>
+        <span class="eyebrow">Place an Order</span>
+        <h2 class="section-title">Send us your order.</h2>
+        <p class="section-lead">Fill the form and we'll reply on WhatsApp within minutes during shop hours.</p>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1.1fr 1fr;gap:50px;align-items:start" class="contact-wrap">
+      <form class="reveal" id="contactForm" style="padding:32px;border-radius:22px;background:var(--card);border:1px solid var(--line)">
+        <div class="row-2">
+          <label class="field"><span>Your name</span><input type="text" required placeholder="Chidi Okonkwo"></label>
+          <label class="field"><span>WhatsApp number</span><input type="tel" required placeholder="0801 234 5678"></label>
+        </div>
+        <label class="field"><span>What are you looking for?</span>
+          <select required>
+            <option value="">Choose...</option>
+            <option>iPhone</option><option>MacBook / Laptop</option><option>iPad / Tablet</option>
+            <option>AirPods / Earpods</option><option>Apple Watch</option><option>Accessories</option>
+            <option>Phone Swap / Trade-in</option><option>Bulk purchase (Reseller)</option>
+          </select>
+        </label>
+        <label class="field"><span>Delivery location</span><input type="text" placeholder="e.g. Lekki Phase 1, Lagos"></label>
+        <label class="field"><span>Additional details</span><textarea placeholder="Specific model, storage, colour, budget..."></textarea></label>
+        <button type="submit" class="btn btn--primary btn--block">Send Enquiry</button>
+      </form>
+      <div class="reveal">
+        <span class="eyebrow">Or Message Us Direct</span>
+        <h2 class="section-title" style="font-size:clamp(1.6rem,3.2vw,2.4rem);margin-bottom:18px">The fastest way to order.</h2>
+        <p style="color:#b8b8b8;line-height:1.75;margin-bottom:26px">We live on WhatsApp. Message us any device you need — with photo, price and specs — and we'll reply fast.</p>
+        <a href="https://wa.me/2348012345678" target="_blank" rel="noopener" class="btn btn--wa btn--block" style="margin-bottom:12px;padding:16px">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11.6 11.6 0 0 0 3.4 17.9L2 22l4.2-1.4A11.6 11.6 0 0 0 12.1 22h.1a11.7 11.7 0 0 0 8.3-19.5z"/></svg>
+          WhatsApp: +234 801 234 5678
+        </a>
+        <a href="tel:+2348012345678" class="btn btn--ghost btn--block" style="padding:16px">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h4l2 5-3 2a12 12 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 4 5a2 2 0 0 1 2-2z"/></svg>
+          Call: +234 801 234 5678
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <a href="#top" class="brand">
+          <span class="brand__mark" data-logo></span>
+          <span class="brand__text">
+            <span class="brand__name">Plug Gadgets</span>
+            <span class="brand__sub">Lagos · Computer Village</span>
+          </span>
+        </a>
+        <p class="footer__about">Your trusted plug for genuine Apple devices and premium accessories in Lagos Computer Village, Ikeja. Buy, sell, swap.</p>
+        <div class="socials">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 3v10.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M15 3a4 4 0 0 0 4 4v3"/></svg></a>
+          <a href="https://wa.me/2348012345678" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5A8.4 8.4 0 0 1 12.5 20a8.4 8.4 0 0 1-3.9-.9L3 21l1.9-5.6a8.4 8.4 0 0 1-.9-3.9A8.4 8.4 0 0 1 12.5 3a8.4 8.4 0 0 1 8.5 8.5z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="#shop">iPhones</a></li>
+          <li><a href="#shop">Laptops & MacBooks</a></li>
+          <li><a href="#shop">iPads & Tablets</a></li>
+          <li><a href="#shop">AirPods & Audio</a></li>
+          <li><a href="#shop">Accessories</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#swap">Phone Swap</a></li>
+          <li><a href="#swap">Trade-in</a></li>
+          <li><a href="#contact">Bulk Orders</a></li>
+          <li><a href="#contact">Same-Day Delivery</a></li>
+          <li><a href="#contact">Setup & Data Transfer</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Visit Us</h4>
+        <ul>
+          <li><a href="#visit">Computer Village, Ikeja</a></li>
+          <li><a href="#visit">Lagos, Nigeria</a></li>
+          <li><a href="https://wa.me/2348012345678">+234 801 234 5678</a></li>
+          <li><a href="https://wa.me/2348012345678">Mon – Sat, 9am – 7pm</a></li>
+          <li><a href="#" id="footerAdmin">Admin Login</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© <span id="year"></span> Plug Gadgets. All rights reserved.</span>
+      <span>Made with ⚡ in Lagos</span>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/2348012345678?text=Hi%20Plug%20Gadgets%2C%20I%20want%20to%20order" target="_blank" rel="noopener" class="fab-wa" aria-label="Chat on WhatsApp">
+  <span class="fab-wa__ic">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11.6 11.6 0 0 0 3.4 17.9L2 22l4.2-1.4A11.6 11.6 0 0 0 12.1 22h.1a11.7 11.7 0 0 0 8.3-19.5z"/></svg>
+  </span>
+  <span>Chat to Order</span>
+</a>
+
+<!-- CART -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+  <div class="cart-drawer__head">
+    <div><h3>Your Cart</h3><small id="cartSummary">0 items</small></div>
+    <button class="cart-drawer__close" id="cartClose">✕</button>
+  </div>
+  <div class="cart-drawer__body" id="cartBody"></div>
+  <div class="cart-drawer__foot">
+    <div class="cart-total"><span>Total</span><b id="cartTotal">₦0</b></div>
+    <button class="btn btn--primary btn--block" id="checkoutBtn">Checkout on WhatsApp</button>
+    <p style="font-size:.72rem;color:var(--muted);margin-top:10px;text-align:center">We'll confirm availability and delivery on WhatsApp.</p>
+  </div>
+</aside>
+
+<!-- PRODUCT DETAIL MODAL -->
+<div class="modal" id="pdModal">
+  <div class="modal__card modal__card--wide">
+    <button class="modal__close" id="pdClose">✕</button>
+    <div id="pdContent"></div>
+  </div>
+</div>
+
+<!-- CHECKOUT MODAL -->
+<div class="modal" id="checkoutModal">
+  <div class="modal__card">
+    <button class="modal__close" id="checkoutClose">✕</button>
+    <div class="modal__head">
+      <h3>Complete your order</h3>
+      <p>We'll send a WhatsApp to confirm and arrange delivery.</p>
+    </div>
+    <div class="order-summary" id="checkoutSummary"></div>
+    <form id="checkoutForm">
+      <label class="field"><span>Full name</span><input type="text" id="ckName" required placeholder="Chidi Okonkwo"></label>
+      <label class="field"><span>WhatsApp number</span><input type="tel" id="ckPhone" required placeholder="0801 234 5678"></label>
+      <label class="field"><span>Delivery address</span><input type="text" id="ckAddress" required placeholder="Street, area, city"></label>
+      <label class="field"><span>Notes (optional)</span><textarea id="ckNotes" placeholder="Colour, storage, timing..."></textarea></label>
+      <button type="submit" class="btn btn--wa btn--block" style="padding:16px">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11.6 11.6 0 0 0 3.4 17.9L2 22l4.2-1.4A11.6 11.6 0 0 0 12.1 22h.1a11.7 11.7 0 0 0 8.3-19.5z"/></svg>
+        Send Order on WhatsApp
+      </button>
+    </form>
+  </div>
+</div>
+
+<!-- ADMIN -->
+<div class="admin" id="admin" aria-hidden="true">
+  <div class="admin__gate" id="adminGate">
+    <form class="gate__card" id="gateForm">
+      <div class="gate__logo" data-logo></div>
+      <h2>Admin Access</h2>
+      <p>Enter your passcode to manage the shop.</p>
+      <input type="password" id="gatePass" placeholder="••••••••">
+      <button class="btn btn--primary btn--block" type="submit">Unlock</button>
+      <div class="gate__err" id="gateErr">Incorrect passcode.</div>
+      <p class="hint gate__hint">Demo passcode: <code>plug2024</code></p>
+      <p class="hint"><a href="#" id="gateExit" style="color:var(--lime)">← Back to shop</a></p>
+    </form>
+  </div>
+
+  <div class="admin__shell" id="adminShell" style="display:none">
+    <aside class="admin__side">
+      <div class="admin__brand">
+        <span class="mk" data-logo></span>
+        <span class="txt"><b>Plug Gadgets</b><small>Admin</small></span>
+      </div>
+      <nav class="admin__tabs" id="adminTabs">
+        <button class="active" data-tab="dashboard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="7" height="9" rx="2"/><rect x="14" y="3" width="7" height="5" rx="2"/><rect x="14" y="12" width="7" height="9" rx="2"/><rect x="3" y="16" width="7" height="5" rx="2"/></svg><span>Dashboard</span></button>
+        <button data-tab="products"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg><span>Products</span></button>
+        <button data-tab="add"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg><span>Publish</span></button>
+        <button data-tab="orders"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 4h13l3 3v13H4z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg><span>Orders</span></button>
+        <button data-tab="settings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-1.8-.3 1.6 1.6 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.6 1.6 0 0 0-1-1.5 1.6 1.6 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.6 1.6 0 0 0 .3-1.8 1.6 1.6 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.6 1.6 0 0 0 1.5-1 1.6 1.6 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.6 1.6 0 0 0 1.8.3H9a1.6 1.6 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.6 1.6 0 0 0 1 1.5 1.6 1.6 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0-.3 1.8V9a1.6 1.6 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.6 1.6 0 0 0-1.5 1z"/></svg><span>Settings</span></button>
+      </nav>
+      <div class="admin__side-foot">
+        <button class="btn btn--ghost btn--sm" id="adminView"><span>View shop</span></button>
+        <button class="btn btn--ghost btn--sm" id="adminLogout"><span>Log out</span></button>
+      </div>
+    </aside>
+
+    <main class="admin__main">
+      <header class="admin__top">
+        <div><h2 id="panelTitle">Dashboard</h2><p id="panelSub">Shop overview</p></div>
+        <div class="admin__top-actions">
+          <span class="storage-meter" id="storageMeter">
+            <span>Storage</span>
+            <span class="storage-bar"><i id="storageBarFill" style="width:0%"></i></span>
+            <b id="storageText">0 KB</b>
+          </span>
+          <span class="admin-badge" style="display:inline-flex;align-items:center;gap:6px;font-size:.66rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#7ee0a0;background:rgba(80,220,140,.12);padding:6px 13px;border-radius:100px">Live</span>
+        </div>
+      </header>
+
+      <div class="admin__panels">
+
+        <!-- DASHBOARD -->
+        <section class="panel active" data-panel="dashboard">
+          <h3>Shop overview</h3>
+          <div class="stat-grid">
+            <div class="stat-card"><small>Total Products</small><b id="statProducts">0</b></div>
+            <div class="stat-card"><small>Total Orders</small><b id="statOrders">0</b></div>
+            <div class="stat-card"><small>Pending Orders</small><b id="statPending">0</b></div>
+            <div class="stat-card"><small>Revenue (Delivered)</small><b id="statRevenue" style="font-size:1.4rem">₦0</b></div>
+          </div>
+
+          <h3>Recent orders</h3>
+          <div class="card-box" id="recentOrders"></div>
+
+          <h3>Quick actions</h3>
+          <div class="card-box" style="display:flex;gap:10px;flex-wrap:wrap">
+            <button class="btn btn--primary btn--sm" data-goto="add">+ Publish new product</button>
+            <button class="btn btn--ghost btn--sm" data-goto="orders">View all orders</button>
+            <button class="btn btn--ghost btn--sm" data-goto="products">Manage products</button>
+          </div>
+        </section>
+
+        <!-- PRODUCTS LIST -->
+        <section class="panel" data-panel="products">
+          <h3>All products <span id="prodCount" style="color:var(--muted);font-weight:400;letter-spacing:0;text-transform:none"></span></h3>
+          <div id="prodList"></div>
+        </section>
+
+        <!-- ADD PRODUCT -->
+        <section class="panel" data-panel="add">
+          <h3 id="prodFormTitle">Publish new product</h3>
+          <div class="card-box">
+            <form id="prodForm">
+              <input type="hidden" id="editId">
+              <div class="field-grid">
+                <label class="field"><span>Brand</span><input type="text" id="pBrand" required placeholder="Apple"></label>
+                <label class="field"><span>Product name</span><input type="text" id="pName" required placeholder="iPhone 15 Pro Max"></label>
+                <label class="field"><span>Category</span><select id="pCat" required></select></label>
+                <label class="field"><span>Condition</span>
+                  <select id="pCond">
+                    <option>Brand New</option>
+                    <option>UK Used</option>
+                    <option>Refurbished</option>
+                    <option>Certified Pre-owned</option>
+                  </select>
+                </label>
+                <label class="field"><span>Price (₦)</span><input type="number" id="pPrice" required placeholder="1850000"></label>
+                <label class="field"><span>Old price (optional)</span><input type="number" id="pOldPrice" placeholder="1950000"></label>
+                <label class="field full"><span>Variants / specs (comma separated)</span><input type="text" id="pVariants" placeholder="256GB, Deep Blue, Sealed"></label>
+                <label class="field full"><span>Description</span><textarea id="pDesc" rows="3" placeholder="What makes this device special..."></textarea></label>
+              </div>
+              <div class="field-grid" style="margin-top:14px">
+                <label class="field"><span>Badge (optional)</span>
+                  <select id="pBadge">
+                    <option value="">None</option>
+                    <option value="hot">🔥 Hot Deal</option>
+                    <option value="new">✨ New Arrival</option>
+                    <option value="swap">🔄 Swap Available</option>
+                    <option value="oos">Out of Stock</option>
+                  </select>
+                </label>
+                <label class="field"><span>Stock status</span>
+                  <select id="pStock">
+                    <option value="1">In Stock</option>
+                    <option value="0">Out of Stock</option>
+                  </select>
+                </label>
+              </div>
+
+              <h3 style="margin-top:22px">Product image</h3>
+              <div style="display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start;margin-bottom:14px">
+                <div class="img-preview" id="pPreview">No image</div>
+                <div style="flex:1;min-width:220px">
+                  <label class="field">
+                    <span>Paste image URL (recommended)</span>
+                    <input type="text" id="pImgUrl" placeholder="https://images.unsplash.com/...">
+                  </label>
+                  <label class="btn btn--ghost btn--sm">Or upload a photo<input type="file" accept="image/*" id="pImgFile" hidden></label>
+                  <p class="hint">Tip: Host on <b>imgbb.com</b> or use any image URL. Small logos can be uploaded directly.</p>
+                </div>
+              </div>
+
+              <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
+                <button type="submit" class="btn btn--primary" id="prodSubmitBtn">Publish Product</button>
+                <button type="button" class="btn btn--ghost" id="prodCancelBtn" style="display:none">Cancel edit</button>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        <!-- ORDERS -->
+        <section class="panel" data-panel="orders">
+          <h3>Incoming orders</h3>
+          <div id="ordersList"></div>
+        </section>
+
+        <!-- SETTINGS -->
+        <section class="panel" data-panel="settings">
+          <h3>Shop settings</h3>
+          <div class="card-box">
+            <div class="field-grid">
+              <label class="field"><span>Shop name</span><input type="text" id="sName"></label>
+              <label class="field"><span>Tagline</span><input type="text" id="sTagline"></label>
+              <label class="field full"><span>WhatsApp number (international format)</span><input type="text" id="sWhatsapp" placeholder="2348012345678"></label>
+              <label class="field full"><span>Shop address</span><input type="text" id="sAddress"></label>
+            </div>
+          </div>
+
+          <h3>Accent colour</h3>
+          <div class="card-box">
+            <div style="display:flex;gap:14px;flex-wrap:wrap">
+              <label style="display:flex;flex-direction:column;gap:8px;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:700">Lime
+                <input type="color" id="cLime" style="width:80px;height:46px;border-radius:12px;border:1px solid var(--line-2);background:#0d0d0d;cursor:pointer;padding:4px">
+              </label>
+              <label style="display:flex;flex-direction:column;gap:8px;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:700">Amber
+                <input type="color" id="cAmber" style="width:80px;height:46px;border-radius:12px;border:1px solid var(--line-2);background:#0d0d0d;cursor:pointer;padding:4px">
+              </label>
+            </div>
+          </div>
+
+          <h3>Backup &amp; reset</h3>
+          <div class="card-box">
+            <div style="display:flex;gap:10px;flex-wrap:wrap">
+              <button class="btn btn--primary btn--sm" id="exportData">Export all data (.json)</button>
+              <label class="btn btn--ghost btn--sm">Import data<input type="file" accept="application/json" id="importData" hidden></label>
+              <button class="btn btn--danger btn--sm" id="resetAll">Reset to defaults</button>
+            </div>
+            <p class="hint">All products, orders, and settings live in this browser. Export a backup before switching devices.</p>
+          </div>
+
+          <h3>Admin passcode</h3>
+          <div class="card-box">
+            <label class="field"><span>New passcode</span><input type="text" id="newPass" placeholder="Leave blank to keep current"></label>
+            <button class="btn btn--primary btn--sm" id="savePass">Update passcode</button>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+</div>
+
+<div class="toast" id="toast">Saved</div>
+
+<script>
+(function(){
+'use strict';
+const $ = (s,c)=>(c||document).querySelector(s);
+const $$ = (s,c)=>Array.from((c||document).querySelectorAll(s));
+const uid = ()=>Math.random().toString(36).slice(2,10);
+const fmt = n => '₦' + Number(n||0).toLocaleString('en-NG');
+
+/* ============ LOGO ============ */
+function logoSVG(){
+  return '<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">' +
+    '<defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1">' +
+    '<stop offset="0%" stop-color="#d4ff4f"/><stop offset="100%" stop-color="#9ee01a"/></linearGradient></defs>' +
+    '<rect x="2" y="2" width="96" height="96" rx="24" fill="url(#lg)"/>' +
+    '<rect x="36" y="10" width="6" height="14" rx="3" fill="#0a0a0a"/>' +
+    '<rect x="58" y="10" width="6" height="14" rx="3" fill="#0a0a0a"/>' +
+    '<circle cx="50" cy="60" r="26" fill="#0a0a0a"/>' +
+    '<path d="M55 40 L40 62 H50 L45 84 L64 58 H53 Z" fill="url(#lg)"/>' +
+    '</svg>';
+}
+
+/* ============ CATEGORY ICONS ============ */
+const CAT_ICONS = {
+  iphone:'<rect x="6" y="2" width="12" height="20" rx="3"/><path d="M10 18h4"/>',
+  laptop:'<rect x="3" y="4" width="18" height="12" rx="2"/><path d="M2 20h20"/>',
+  tablet:'<rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="18" r="1"/>',
+  audio:'<path d="M12 2v10a4 4 0 0 0 8 0"/><circle cx="16" cy="16" r="4"/><path d="M12 2H8a4 4 0 0 0-4 4v4"/>',
+  watch:'<rect x="6" y="6" width="12" height="12" rx="3"/><path d="M9 6V3h6v3M9 18v3h6v-3"/>',
+  accessory:'<circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M5 19l3-3M16 8l3-3"/>'
+};
+
+/* ============ SEED PRODUCTS ============ */
+function seedProducts(){
+  const U = (id,w)=>`https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w||800}&q=80`;
+  return [
+    { id:uid(), brand:'Apple', name:'iPhone 15 Pro Max', cat:'iphone', cond:'Brand New',
+      price:1850000, oldPrice:2050000, variants:['256GB','512GB','Natural Titanium'],
+      desc:'The latest flagship — titanium body, A17 Pro chip, incredible camera. Sealed in box with full warranty.',
+      badge:'hot', stock:1, img:U('1592750475338-74b7b21085ab') },
+    { id:uid(), brand:'Apple', name:'iPhone 14 Pro', cat:'iphone', cond:'UK Used',
+      price:1250000, oldPrice:1400000, variants:['128GB','Deep Purple','Battery 92%'],
+      desc:'Clean UK-used iPhone 14 Pro. Tested and verified. Dynamic Island, 48MP camera.',
+      badge:'swap', stock:1, img:U('1580910051074-3eb694886505') },
+    { id:uid(), brand:'Apple', name:'iPhone 13', cat:'iphone', cond:'UK Used',
+      price:780000, oldPrice:880000, variants:['128GB','Midnight','Battery 88%'],
+      desc:'Reliable daily driver. Clean body, no scratches. Comes with charger and case.',
+      badge:'', stock:1, img:U('1591337676887-a217a6970a8a') },
+    { id:uid(), brand:'Apple', name:'iPhone 12', cat:'iphone', cond:'UK Used',
+      price:520000, oldPrice:600000, variants:['64GB','Blue','Battery 85%'],
+      desc:'Still going strong. 5G ready, dual camera, great for content creators on a budget.',
+      badge:'', stock:1, img:U('1510557880182-3d4d3cba35a5') },
+    { id:uid(), brand:'Apple', name:'iPhone 11', cat:'iphone', cond:'UK Used',
+      price:380000, oldPrice:450000, variants:['64GB','White','Battery 82%'],
+      desc:'Best budget iPhone. Perfect first iPhone or backup device.',
+      badge:'', stock:1, img:U('1510557880182-3d4d3cba35a5') },
+    { id:uid(), brand:'Apple', name:'MacBook Pro 14" M3', cat:'laptop', cond:'Brand New',
+      price:2400000, oldPrice:2650000, variants:['16GB/512GB','Space Black'],
+      desc:'M3 Pro chip, 14-inch Liquid Retina XDR. The ultimate creator laptop.',
+      badge:'new', stock:1, img:U('1517336714731-489689fd1ca8') },
+    { id:uid(), brand:'Apple', name:'MacBook Air M2', cat:'laptop', cond:'Brand New',
+      price:1450000, oldPrice:1600000, variants:['8GB/256GB','Midnight'],
+      desc:'Fanless, silent, 18-hour battery. The perfect everyday MacBook.',
+      badge:'hot', stock:1, img:U('1611186871348-b1ce696e52c9') },
+    { id:uid(), brand:'Apple', name:'iPad Pro 12.9" M2', cat:'tablet', cond:'UK Used',
+      price:1100000, oldPrice:1250000, variants:['256GB','Wi-Fi','Space Grey'],
+      desc:'The most powerful iPad ever. Amazing for artists and designers.',
+      badge:'', stock:1, img:U('1544244015-0df4b3ffc6b0') },
+    { id:uid(), brand:'Apple', name:'iPad Air 5', cat:'tablet', cond:'Brand New',
+      price:650000, oldPrice:720000, variants:['64GB','Blue','Wi-Fi'],
+      desc:'M1 chip, 10.9" display. Light, fast, and beautifully balanced.',
+      badge:'', stock:1, img:U('1561154464-82e9adf32764') },
+    { id:uid(), brand:'Apple', name:'AirPods Pro (2nd Gen)', cat:'audio', cond:'Brand New',
+      price:280000, oldPrice:320000, variants:['USB-C','Active Noise Cancel'],
+      desc:'Adaptive Audio, USB-C charging, up to 2x more noise cancellation.',
+      badge:'hot', stock:1, img:U('1600294037681-c80b4cb5b434') },
+    { id:uid(), brand:'Apple', name:'AirPods Max', cat:'audio', cond:'UK Used',
+      price:620000, oldPrice:700000, variants:['Space Grey','Lightning'],
+      desc:'Over-ear luxury. Stunning sound, spatial audio, premium finish.',
+      badge:'', stock:1, img:U('1588423771073-b8903fbb85b5') },
+    { id:uid(), brand:'Apple', name:'Apple Watch Series 9', cat:'watch', cond:'Brand New',
+      price:550000, oldPrice:620000, variants:['41mm','45mm','Midnight'],
+      desc:'Double-tap gesture, brighter display, the most advanced Apple Watch.',
+      badge:'new', stock:1, img:U('1546868871-7041f2a55e12') },
+    { id:uid(), brand:'Apple', name:'MagSafe Charger', cat:'accessory', cond:'Brand New',
+      price:65000, oldPrice:80000, variants:['15W','2M Cable'],
+      desc:'Official Apple MagSafe wireless charger with 15W fast charging.',
+      badge:'', stock:1, img:U('1583394838336-acd977736f90') },
+    { id:uid(), brand:'Apple', name:'Apple Pencil (2nd Gen)', cat:'accessory', cond:'Brand New',
+      price:145000, oldPrice:165000, variants:['Magnetic','Wireless Charge'],
+      desc:'Precision drawing tool for iPad Pro and iPad Air. Pressure sensitive.',
+      badge:'', stock:1, img:U('1583394838336-acd977736f90') }
+  ];
+}
+
+/* ============ STATE ============ */
+const STORE_KEY = 'pluggadgets.v1';
+const DEFAULT_SETTINGS = {
+  name:'Plug Gadgets', tagline:'Lagos · Computer Village',
+  whatsapp:'2348012345678',
+  address:'Computer Village, Ikeja, Lagos, Nigeria',
+  lime:'#c8ff3d', amber:'#ffb347',
+  password:'plug2024'
+};
+const DEFAULTS = {
+  products: seedProducts(),
+  orders: [],
+  settings: DEFAULT_SETTINGS
+};
+
+function loadState(){
+  try{
+    const raw = localStorage.getItem(STORE_KEY);
+    if (raw){
+      const p = JSON.parse(raw);
+      return {
+        products: Array.isArray(p.products) ? p.products : seedProducts(),
+        orders: Array.isArray(p.orders) ? p.orders : [],
+        settings: Object.assign({}, DEFAULT_SETTINGS, p.settings||{})
+      };
+    }
+  }catch(e){}
+  return JSON.parse(JSON.stringify(DEFAULTS));
+}
+let state = loadState();
+let cart = [];
+
+function save(){
+  try{ localStorage.setItem(STORE_KEY, JSON.stringify(state)); updateStorage(); return true; }
+  catch(e){ console.warn('save fail', e); updateStorage(); return false; }
+}
+
+function updateStorage(){
+  const fill = $('#storageBarFill'), txt = $('#storageText'), m = $('#storageMeter');
+  if (!txt) return;
+  let bytes = 0;
+  try{
+    for (const k in localStorage){
+      if (Object.prototype.hasOwnProperty.call(localStorage,k)) bytes += (localStorage[k]||'').length + k.length;
+    }
+  }catch(e){}
+  const pct = Math.min(100, Math.round(bytes/(5*1024*1024)*100));
+  if (fill) fill.style.width = pct + '%';
+  if (txt) txt.textContent = (bytes/1024).toFixed(0)+' KB · '+pct+'%';
+  if (m){
+    m.classList.remove('warn','crit');
+    if (pct>85) m.classList.add('crit');
+    else if (pct>60) m.classList.add('warn');
+  }
+}
+
+function toast(msg){
+  const el = $('#toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  clearTimeout(el._t);
+  el._t = setTimeout(()=>el.classList.remove('show'), 2800);
+}
+
+function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+/* ============ APPLY THEME / SETTINGS ============ */
+function applySettings(){
+  const s = state.settings;
+  document.documentElement.style.setProperty('--lime', s.lime);
+  document.documentElement.style.setProperty('--amber', s.amber);
+  const rgb = hexToRgb(s.lime);
+  document.documentElement.style.setProperty('--glow', rgb);
+  document.title = s.name + ' — iPhones, Laptops & Accessories | Lagos Computer Village';
+  $$('[data-logo]').forEach(el => el.innerHTML = logoSVG());
+  $$('.brand__name').forEach(el => el.textContent = s.name);
+  $$('.brand__sub').forEach(el => el.textContent = s.tagline);
+  // Update WA links
+  const waHref = 'https://wa.me/' + s.whatsapp;
+  $$('a[href^="https://wa.me/"]').forEach(a => {
+    const href = a.getAttribute('href');
+    const q = href.includes('?') ? href.split('?')[1] : '';
+    a.setAttribute('href', q ? (waHref + '?' + q) : waHref);
+  });
+}
+function hexToRgb(hex){
+  const h = hex.replace('#','');
+  const v = h.length===3 ? h.split('').map(c=>c+c).join('') : h;
+  const n = parseInt(v,16);
+  return [(n>>16)&255, (n>>8)&255, n&255].join(',');
+}
+
+/* ============ RENDER: TICKER ============ */
+function renderTicker(){
+  const items = ['🔥 iPhone 15 Pro Max in stock','💎 UK-used iPhones available','🔄 Direct phone swapping','🚚 Same-day Lagos delivery','✅ 6-month warranty','📱 WhatsApp to order now'];
+  const block = '<span>'+items.join('</span><span>')+'</span>';
+  $('#tickerTrack').innerHTML = block + block;
+}
+
+/* ============ RENDER: CATEGORIES ============ */
+function renderCategories(){
+  const cats = [
+    { id:'iphone', name:'iPhones', desc:'Latest & UK-used Apple phones' },
+    { id:'laptop', name:'MacBooks & Laptops', desc:'Pro performance, Air portability' },
+    { id:'tablet', name:'iPads & Tablets', desc:'For creators, students, pros' },
+    { id:'audio', name:'AirPods & Audio', desc:'Immersive sound, everywhere' },
+    { id:'watch', name:'Apple Watch', desc:'Health, fitness, style' },
+    { id:'accessory', name:'Accessories', desc:'Chargers, pencils, cases' }
+  ];
+  $('#catGrid').innerHTML = cats.map(c => {
+    const count = state.products.filter(p => p.cat === c.id).length;
+    return '<div class="cat-card" data-cat="'+c.id+'">' +
+      '<div class="cat-card__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">'+CAT_ICONS[c.id]+'</svg></div>' +
+      '<span class="cat-card__count">'+count+' items</span>' +
+      '<h3>'+c.name+'</h3><p>'+c.desc+'</p>' +
+    '</div>';
+  }).join('');
+  $$('#catGrid .cat-card').forEach(el => el.addEventListener('click', ()=>{
+    const cat = el.dataset.cat;
+    activeCat = cat;
+    renderFilters();
+    renderProducts();
+    document.getElementById('shop').scrollIntoView({behavior:'smooth'});
+  }));
+}
+
+/* ============ RENDER: PRODUCTS ============ */
+let activeCat = 'All';
+const CATS_LIST = [
+  { id:'All', name:'All' },
+  { id:'iphone', name:'iPhones' },
+  { id:'laptop', name:'Laptops' },
+  { id:'tablet', name:'Tablets' },
+  { id:'audio', name:'Audio' },
+  { id:'watch', name:'Watches' },
+  { id:'accessory', name:'Accessories' }
+];
+
+function renderFilters(){
+  $('#prodFilters').innerHTML = CATS_LIST.map(c =>
+    '<button class="chip'+(activeCat===c.id?' active':'')+'" data-cat="'+c.id+'">'+c.name+'</button>'
+  ).join('');
+  $$('#prodFilters .chip').forEach(el => el.addEventListener('click', ()=>{
+    activeCat = el.dataset.cat;
+    renderFilters(); renderProducts();
+  }));
+}
+
+function renderProducts(){
+  const list = activeCat==='All' ? state.products : state.products.filter(p => p.cat===activeCat);
+  const grid = $('#prodGrid');
+  if (!list.length){
+    grid.innerHTML = '<div style="grid-column:1/-1;padding:60px 20px;text-align:center;color:var(--muted);border:1px dashed var(--line-2);border-radius:20px">No products in this category yet.</div>';
+    return;
+  }
+  grid.innerHTML = list.map((p,i)=>{
+    const badges = [];
+    if (p.badge==='hot') badges.push('<span class="badge badge--hot">🔥 Hot Deal</span>');
+    if (p.badge==='new') badges.push('<span class="badge badge--new">✨ New</span>');
+    if (p.badge==='swap') badges.push('<span class="badge badge--swap">🔄 Swap</span>');
+    if (!p.stock || p.badge==='oos') badges.push('<span class="badge badge--oos">Out of Stock</span>');
+    return '<div class="prod-card" data-id="'+p.id+'" style="animation-delay:'+(i*40)+'ms">' +
+      '<div class="prod-card__media">' +
+        '<div class="prod-card__badges">'+badges.join('')+'</div>' +
+        '<button class="prod-card__fav" data-fav="'+p.id+'" aria-label="Save"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1L12 21l7.7-7.6 1.1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>' +
+        '<img src="'+p.img+'" alt="'+esc(p.name)+'" loading="lazy" onerror="this.src=\'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 400%22%3E%3Crect width=%22400%22 height=%22400%22 fill=%22%23141414%22/%3E%3Ctext x=%22200%22 y=%22210%22 text-anchor=%22middle%22 fill=%22%23555%22 font-family=%22sans-serif%22 font-size=%2224%22%3ENo Image%3C/text%3E%3C/svg%3E\'">' +
+      '</div>' +
+      '<div class="prod-card__body">' +
+        '<span class="prod-card__brand">'+esc(p.brand)+'</span>' +
+        '<h3 class="prod-card__name">'+esc(p.name)+'</h3>' +
+        '<div class="prod-card__meta"><span>'+esc(p.cond)+'</span>' + (p.variants&&p.variants[0]?('<span>'+esc(p.variants[0])+'</span>'):'') + '</div>' +
+        '<div class="prod-card__price"><b>'+fmt(p.price)+'</b>'+(p.oldPrice?('<s>'+fmt(p.oldPrice)+'</s>'):'')+'</div>' +
+        '<div class="prod-card__actions">' +
+          '<button class="btn btn--primary btn--sm" data-add="'+p.id+'" style="flex:1">Add to Cart</button>' +
+          '<button class="btn btn--ghost btn--sm" data-view="'+p.id+'" style="flex:1">View</button>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  }).join('');
+
+  $$('#prodGrid [data-add]').forEach(b => b.addEventListener('click', e => { e.stopPropagation(); addToCart(b.dataset.add); }));
+  $$('#prodGrid [data-view]').forEach(b => b.addEventListener('click', e => { e.stopPropagation(); openProduct(b.dataset.view); }));
+  $$('#prodGrid .prod-card').forEach(card => card.addEventListener('click', ()=> openProduct(card.dataset.id)));
+  $$('#prodGrid [data-fav]').forEach(b => b.addEventListener('click', e => {
+    e.stopPropagation();
+    b.classList.toggle('active');
+    toast(b.classList.contains('active') ? '❤️ Saved' : 'Removed from saved');
+  }));
+}
+
+/* ============ PRODUCT DETAIL ============ */
+function openProduct(id){
+  const p = state.products.find(x => x.id === id);
+  if (!p) return;
+  $('#pdContent').innerHTML = 
+    '<div class="pd">' +
+      '<div class="pd__media"><img src="'+p.img+'" alt="'+esc(p.name)+'"></div>' +
+      '<div class="pd__info">' +
+        '<span class="pd__brand">'+esc(p.brand)+'</span>' +
+        '<h2>'+esc(p.name)+'</h2>' +
+        '<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px">' +
+          '<span style="font-size:.72rem;background:rgba(200,255,61,.12);color:var(--lime);padding:4px 12px;border-radius:100px;font-weight:700">'+esc(p.cond)+'</span>' +
+          (p.stock?'<span style="font-size:.72rem;background:rgba(80,220,140,.12);color:#50dc8c;padding:4px 12px;border-radius:100px;font-weight:700">✓ In Stock</span>':'<span style="font-size:.72rem;background:rgba(255,90,90,.15);color:#ff5a5a;padding:4px 12px;border-radius:100px;font-weight:700">Out of Stock</span>') +
+        '</div>' +
+        '<div class="pd__price">'+fmt(p.price)+'</div>' +
+        (p.oldPrice?'<div class="pd__old">'+fmt(p.oldPrice)+'</div>':'<div style="height:8px"></div>') +
+        '<p class="pd__desc">'+esc(p.desc||'')+'</p>' +
+        '<div class="pd__specs">' +
+          (p.variants||[]).map(v => '<div class="pd__spec"><span>Variant</span><span>'+esc(v)+'</span></div>').join('') +
+          '<div class="pd__spec"><span>Condition</span><span>'+esc(p.cond)+'</span></div>' +
+          '<div class="pd__spec"><span>Warranty</span><span>Up to 6 months</span></div>' +
+        '</div>' +
+        '<div class="pd__actions">' +
+          '<button class="btn btn--primary" data-add2="'+p.id+'">Add to Cart</button>' +
+          '<a href="https://wa.me/'+state.settings.whatsapp+'?text='+encodeURIComponent('Hi Plug Gadgets, I want to buy the '+p.name)+'" target="_blank" rel="noopener" class="btn btn--wa">Order on WhatsApp</a>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  $('#pdModal').classList.add('open');
+  document.body.classList.add('locked');
+  const b = $('#pdContent [data-add2]');
+  if (b) b.addEventListener('click', ()=> addToCart(p.id));
+}
+function closeProduct(){ $('#pdModal').classList.remove('open'); document.body.classList.remove('locked'); }
+
+/* ============ CART ============ */
+function addToCart(id){
+  const p = state.products.find(x => x.id === id);
+  if (!p) return;
+  if (!p.stock){ toast('That item is out of stock'); return; }
+  const existing = cart.find(x => x.id === id);
+  if (existing) existing.qty++;
+  else cart.push({ id:p.id, name:p.name, price:p.price, img:p.img, qty:1 });
+  renderCart();
+  toast('✓ Added to cart');
+  openCart();
+}
+function updateQty(id, delta){
+  const it = cart.find(x => x.id === id);
+  if (!it) return;
+  it.qty += delta;
+  if (it.qty <= 0) cart = cart.filter(x => x.id !== id);
+  renderCart();
+}
+function removeFromCart(id){ cart = cart.filter(x => x.id !== id); renderCart(); }
+
+function renderCart(){
+  const count = cart.reduce((s,x)=>s+x.qty,0);
+  const total = cart.reduce((s,x)=>s+x.price*x.qty,0);
+  $('#cartCount').textContent = count;
+  $('#cartCount').style.display = count ? 'grid' : 'none';
+  $('#cartSummary').textContent = count + ' item' + (count===1?'':'s');
+  $('#cartTotal').textContent = fmt(total);
+
+  if (!cart.length){
+    $('#cartBody').innerHTML = '<div class="cart-empty">' +
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h2l2.4 12.4A2 2 0 0 0 9.36 17H19a2 2 0 0 0 1.96-1.6L22.5 8H6.16"/></svg>' +
+      '<p>Your cart is empty.<br>Browse products and add what you need.</p></div>';
+    return;
+  }
+  $('#cartBody').innerHTML = cart.map(it =>
+    '<div class="cart-item">' +
+      '<div class="cart-item__media"><img src="'+it.img+'" alt=""></div>' +
+      '<div class="cart-item__info">' +
+        '<div class="cart-item__name">'+esc(it.name)+'</div>' +
+        '<div class="cart-item__price">'+fmt(it.price*it.qty)+'</div>' +
+        '<div class="cart-item__qty">' +
+          '<button data-minus="'+it.id+'">−</button><span>'+it.qty+'</span><button data-plus="'+it.id+'">+</button>' +
+          '<button style="margin-left:auto;background:none;border:0;color:#ff8080;font-size:1rem" data-remove="'+it.id+'">✕</button>' +
+        '</div>' +
+      '</div>' +
+    '</div>'
+  ).join('');
+  $$('#cartBody [data-plus]').forEach(b => b.addEventListener('click', ()=> updateQty(b.dataset.plus, 1)));
+  $$('#cartBody [data-minus]').forEach(b => b.addEventListener('click', ()=> updateQty(b.dataset.minus, -1)));
+  $$('#cartBody [data-remove]').forEach(b => b.addEventListener('click', ()=> removeFromCart(b.dataset.remove)));
+}
+
+function openCart(){ $('#cartDrawer').classList.add('open'); $('#cartOverlay').classList.add('open'); document.body.classList.add('locked'); }
+function closeCart(){ $('#cartDrawer').classList.remove('open'); $('#cartOverlay').classList.remove('open'); document.body.classList.remove('locked'); }
+
+/* ============ CHECKOUT ============ */
+function openCheckout(){
+  if (!cart.length){ toast('Add a product first'); return; }
+  closeCart();
+  const total = cart.reduce((s,x)=>s+x.price*x.qty,0);
+  $('#checkoutSummary').innerHTML = '<h4>Order summary</h4>' +
+    cart.map(it => '<div class="order-line"><span>'+esc(it.name)+' × '+it.qty+'</span><span>'+fmt(it.price*it.qty)+'</span></div>').join('') +
+    '<div class="order-line total"><span>Total</span><span>'+fmt(total)+'</span></div>';
+  $('#checkoutModal').classList.add('open');
+  document.body.classList.add('locked');
+}
+
+function submitCheckout(e){
+  e.preventDefault();
+  const name = $('#ckName').value.trim();
+  const phone = $('#ckPhone').value.trim();
+  const addr = $('#ckAddress').value.trim();
+  const notes = $('#ckNotes').value.trim();
+  const total = cart.reduce((s,x)=>s+x.price*x.qty,0);
+
+  const order = {
+    id: 'ORD-' + Date.now().toString().slice(-6),
+    date: new Date().toISOString(),
+    customer: name, phone, address: addr, notes,
+    items: cart.map(it => ({ name:it.name, qty:it.qty, price:it.price })),
+    total, status:'pending'
+  };
+  state.orders.unshift(order);
+  save();
+
+  const lines = ['*NEW ORDER — ' + state.settings.name + '*','',
+    'Order ID: ' + order.id,
+    'Name: ' + name,
+    'Phone: ' + phone,
+    'Address: ' + addr,
+    notes ? ('Notes: ' + notes) : '',
+    '',
+    '*Items:*',
+    ...cart.map(it => '• ' + it.name + ' × ' + it.qty + ' — ' + fmt(it.price*it.qty)),
+    '',
+    '*Total: ' + fmt(total) + '*'
+  ].filter(Boolean).join('\n');
+
+  const url = 'https://wa.me/' + state.settings.whatsapp + '?text=' + encodeURIComponent(lines);
+  window.open(url, '_blank');
+
+  cart = [];
+  renderCart();
+  $('#checkoutModal').classList.remove('open');
+  document.body.classList.remove('locked');
+  $('#checkoutForm').reset();
+  toast('✓ Order sent! We\'ll reply on WhatsApp');
+}
+
+/* ============ TESTIMONIALS ============ */
+const TESTIMONIALS = [
+  { q:'Bought an iPhone 13 from Plug Gadgets — clean device, real price, no story. Battery exactly as described. Will buy again.', n:'Emeka O.', r:'Lekki, Lagos', a:'EO' },
+  { q:'Swapped my old iPhone 11 for a 13. They valued it fairly, no long talk, and transferred everything to the new phone before I left. 10/10.', n:'Aisha B.', r:'Ikeja, Lagos', a:'AB' },
+  { q:'Ordered AirPods Pro on WhatsApp and they delivered same day to Yaba. Genuine product, sealed. Plug Gadgets is the real plug.', n:'Tunde A.', r:'Yaba, Lagos', a:'TA' },
+  { q:'Bought a MacBook Air M2 for my design work. Clean and fast. Warranty card included. Very professional.', n:'Chidinma K.', r:'Victoria Island, Lagos', a:'CK' }
+];
+function renderTestimonials(){
+  $('#tstGrid').innerHTML = TESTIMONIALS.map((t,i) =>
+    '<div class="tst reveal" style="transition-delay:'+(i*60)+'ms">' +
+      '<div class="tst__stars">★★★★★</div>' +
+      '<p>"'+t.q+'"</p>' +
+      '<div class="tst__who"><div class="tst__av">'+t.a+'</div><div><b>'+t.n+'</b><small>'+t.r+'</small></div></div>' +
+    '</div>'
+  ).join('');
+}
+
+/* ============ REVEAL ============ */
+const revObs = new IntersectionObserver(es => {
+  es.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); revObs.unobserve(e.target); } });
+}, { threshold:.1, rootMargin:'0px 0px -60px 0px' });
+function watchReveal(){ $$('.reveal:not(.in)').forEach(el => revObs.observe(el)); }
+
+/* ============ HEADER / SCROLL ============ */
+function initHeader(){
+  const h = $('#header');
+  const onScroll = () => h.classList.toggle('scrolled', window.scrollY > 30);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive:true });
+  const sp = $('#scrollProgress');
+  window.addEventListener('scroll', ()=>{
+    const dh = document.documentElement;
+    const pct = dh.scrollTop / (dh.scrollHeight - dh.clientHeight) * 100;
+    sp.style.width = pct + '%';
+  }, { passive:true });
+
+  const burger = $('#burger'), mnav = $('#mobileNav');
+  burger.addEventListener('click', ()=>{
+    burger.classList.toggle('open');
+    mnav.classList.toggle('open');
+    document.body.classList.toggle('locked', mnav.classList.contains('open'));
+  });
+  $$('#mobileNav a').forEach(a => a.addEventListener('click', ()=>{
+    burger.classList.remove('open'); mnav.classList.remove('open'); document.body.classList.remove('locked');
+  }));
+}
+
+/* ============ ADMIN ============ */
+let adminUnlocked = false;
+function openAdmin(){
+  $('#admin').classList.add('open');
+  document.body.classList.add('locked');
+  $('#adminGate').style.display = adminUnlocked ? 'none' : 'grid';
+  $('#adminShell').style.display = adminUnlocked ? 'grid' : 'none';
+  if (!adminUnlocked) setTimeout(()=> $('#gatePass').focus(), 200);
+  if (adminUnlocked) renderAdmin();
+}
+function closeAdmin(){
+  $('#admin').classList.remove('open');
+  document.body.classList.remove('locked');
+}
+function initGate(){
+  $('#gateForm').addEventListener('submit', e => {
+    e.preventDefault();
+    if ($('#gatePass').value.trim() === state.settings.password){
+      adminUnlocked = true;
+      $('#gateErr').classList.remove('show');
+      $('#gatePass').value = '';
+      $('#adminGate').style.display = 'none';
+      $('#adminShell').style.display = 'grid';
+      renderAdmin();
+      toast('Welcome back, boss');
+    } else {
+      $('#gateErr').classList.add('show');
+      $('#gatePass').value = '';
+    }
+  });
+  $('#gateExit').addEventListener('click', e => { e.preventDefault(); closeAdmin(); });
+  $('#adminLogout').addEventListener('click', ()=>{ adminUnlocked = false; closeAdmin(); toast('Logged out'); });
+  $('#adminView').addEventListener('click', closeAdmin);
+}
+
+const PANEL_META = {
+  dashboard:['Dashboard','Shop overview'],
+  products:['Products','Manage your catalogue'],
+  add:['Publish','Add or edit a product'],
+  orders:['Orders','Customer orders'],
+  settings:['Settings','Shop identity & data']
+};
+function initTabs(){
+  $$('#adminTabs button').forEach(b => b.addEventListener('click', ()=>{
+    const t = b.dataset.tab;
+    $$('#adminTabs button').forEach(x => x.classList.toggle('active', x === b));
+    $$('.panel').forEach(p => p.classList.toggle('active', p.dataset.panel === t));
+    const meta = PANEL_META[t] || ['',''];
+    $('#panelTitle').textContent = meta[0];
+    $('#panelSub').textContent = meta[1];
+    $('.admin__panels').scrollTop = 0;
+    if (t==='products') renderAdminProducts();
+    if (t==='orders') renderAdminOrders();
+    if (t==='dashboard') renderAdmin();
+    if (t==='add') fillCatSelect();
+  }));
+  $$('[data-goto]').forEach(b => b.addEventListener('click', ()=>{
+    const target = b.dataset.goto;
+    const btn = $$('#adminTabs button').find(x => x.dataset.tab === target);
+    if (btn) btn.click();
+  }));
+}
+
+function renderAdmin(){
+  const totalProducts = state.products.length;
+  const totalOrders = state.orders.length;
+  const pending = state.orders.filter(o => o.status === 'pending').length;
+  const revenue = state.orders.filter(o => o.status === 'delivered').reduce((s,o) => s + o.total, 0);
+  $('#statProducts').textContent = totalProducts;
+  $('#statOrders').textContent = totalOrders;
+  $('#statPending').textContent = pending;
+  $('#statRevenue').textContent = fmt(revenue);
+
+  const recent = state.orders.slice(0,3);
+  $('#recentOrders').innerHTML = recent.length ? recent.map(o =>
+    '<div style="padding:12px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap">' +
+      '<div><b style="color:var(--lime);font-family:var(--display)">'+o.id+'</b><div style="font-size:.82rem;margin-top:3px">'+esc(o.customer)+' · '+esc(o.phone)+'</div></div>' +
+      '<div style="text-align:right"><b>'+fmt(o.total)+'</b><div style="font-size:.72rem;color:var(--muted);margin-top:3px">'+o.status+'</div></div>' +
+    '</div>'
+  ).join('') : '<div style="padding:20px;text-align:center;color:var(--muted);font-size:.86rem">No orders yet.</div>';
+
+  renderAdminProducts();
+  renderAdminOrders();
+  fillSettings();
+}
+
+function renderAdminProducts(){
+  const el = $('#prodList');
+  if (!el) return;
+  $('#prodCount').textContent = '· ' + state.products.length + ' products';
+  if (!state.products.length){ el.innerHTML = '<div class="card-box" style="text-align:center;color:var(--muted)">No products yet. Publish your first one.</div>'; return; }
+  el.innerHTML = state.products.map(p =>
+    '<div class="ap-row">' +
+      '<div class="ap-row__img"><img src="'+p.img+'" alt=""></div>' +
+      '<div class="ap-row__info">' +
+        '<span class="ap-row__brand">'+esc(p.brand)+' · '+esc(p.cat)+'</span>' +
+        '<div class="ap-row__name">'+esc(p.name)+'</div>' +
+        '<div class="ap-row__meta"><span>'+esc(p.cond)+'</span><span>'+(p.stock?'In Stock':'Out of Stock')+'</span></div>' +
+        '<div class="ap-row__price">'+fmt(p.price)+'</div>' +
+      '</div>' +
+      '<div class="ap-row__actions">' +
+        '<button data-edit="'+p.id+'" title="Edit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></button>' +
+        '<button class="danger" data-del="'+p.id+'" title="Delete"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg></button>' +
+      '</div>' +
+    '</div>'
+  ).join('');
+  $$('#prodList [data-edit]').forEach(b => b.addEventListener('click', ()=> editProduct(b.dataset.edit)));
+  $$('#prodList [data-del]').forEach(b => b.addEventListener('click', ()=>{
+    if (!confirm('Delete this product?')) return;
+    state.products = state.products.filter(x => x.id !== b.dataset.del);
+    save(); renderAdminProducts(); renderProducts(); renderCategories(); toast('Product deleted');
+  }));
+}
+
+function renderAdminOrders(){
+  const el = $('#ordersList');
+  if (!el) return;
+  if (!state.orders.length){ el.innerHTML = '<div class="card-box" style="text-align:center;color:var(--muted);padding:40px">No orders yet. Orders from customers will appear here.</div>'; return; }
+  el.innerHTML = state.orders.map(o => 
+    '<div class="ao-row">' +
+      '<div class="ao-head">' +
+        '<div><span class="ao-id">'+o.id+'</span><div class="ao-date">'+new Date(o.date).toLocaleString()+'</div></div>' +
+        '<span class="ao-status '+o.status+'">'+o.status+'</span>' +
+      '</div>' +
+      '<div class="ao-body">' +
+        '<div class="ao-block"><small>Customer</small><div><b>'+esc(o.customer)+'</b></div></div>' +
+        '<div class="ao-block"><small>Phone</small><div>'+esc(o.phone)+'</div></div>' +
+        '<div class="ao-block"><small>Delivery address</small><div>'+esc(o.address)+'</div></div>' +
+        '<div class="ao-block"><small>Notes</small><div>'+esc(o.notes||'—')+'</div></div>' +
+      '</div>' +
+      '<div class="ao-items">' +
+        o.items.map(it => '<div class="ao-item"><span>'+esc(it.name)+' × '+it.qty+'</span><span>'+fmt(it.price*it.qty)+'</span></div>').join('') +
+        '<div class="ao-total"><span>Total</span><span style="color:var(--lime)">'+fmt(o.total)+'</span></div>' +
+      '</div>' +
+      '<div class="ao-actions">' +
+        '<a href="https://wa.me/'+o.phone.replace(/\\D/g,'')+'" target="_blank" rel="noopener" class="btn btn--wa btn--xs">Message Customer</a>' +
+        '<button class="btn btn--ghost btn--xs" data-status="confirmed" data-id="'+o.id+'">Mark Confirmed</button>' +
+        '<button class="btn btn--ghost btn--xs" data-status="shipped" data-id="'+o.id+'">Shipped</button>' +
+        '<button class="btn btn--ghost btn--xs" data-status="delivered" data-id="'+o.id+'">Delivered</button>' +
+        '<button class="btn btn--danger btn--xs" data-status="cancelled" data-id="'+o.id+'">Cancel</button>' +
+        '<button class="btn btn--ghost btn--xs" data-delorder="'+o.id+'" style="color:#ff8080">Delete</button>' +
+      '</div>' +
+    '</div>'
+  ).join('');
+  $$('#ordersList [data-status]').forEach(b => b.addEventListener('click', ()=>{
+    const o = state.orders.find(x => x.id === b.dataset.id);
+    if (!o) return;
+    o.status = b.dataset.status;
+    save(); renderAdminOrders(); renderAdmin(); toast('Order marked as '+o.status);
+  }));
+  $$('#ordersList [data-delorder]').forEach(b => b.addEventListener('click', ()=>{
+    if (!confirm('Delete this order record?')) return;
+    state.orders = state.orders.filter(x => x.id !== b.dataset.delorder);
+    save(); renderAdminOrders(); renderAdmin(); toast('Order deleted');
+  }));
+}
+
+function fillCatSelect(){
+  const sel = $('#pCat');
+  if (!sel) return;
+  const current = sel.value;
+  sel.innerHTML = CATS_LIST.filter(c=>c.id!=='All').map(c => '<option value="'+c.id+'">'+c.name+'</option>').join('');
+  if (current) sel.value = current;
+}
+
+function editProduct(id){
+  const p = state.products.find(x => x.id === id);
+  if (!p) return;
+  const tabBtn = $$('#adminTabs button').find(b => b.dataset.tab === 'add');
+  if (tabBtn) tabBtn.click();
+  fillCatSelect();
+  $('#editId').value = p.id;
+  $('#pBrand').value = p.brand || '';
+  $('#pName').value = p.name || '';
+  $('#pCat').value = p.cat;
+  $('#pCond').value = p.cond || 'Brand New';
+  $('#pPrice').value = p.price;
+  $('#pOldPrice').value = p.oldPrice || '';
+  $('#pVariants').value = (p.variants||[]).join(', ');
+  $('#pDesc').value = p.desc || '';
+  $('#pBadge').value = p.badge || '';
+  $('#pStock').value = p.stock ? '1' : '0';
+  $('#pImgUrl').value = p.img.startsWith('data:') ? '' : p.img;
+  setPreview('#pPreview', p.img, 'No image');
+  $('#prodFormTitle').textContent = 'Edit product';
+  $('#prodSubmitBtn').textContent = 'Update Product';
+  $('#prodCancelBtn').style.display = 'inline-flex';
+}
+
+function setPreview(sel, src, empty){
+  const el = $(sel);
+  if (!el) return;
+  el.innerHTML = src ? '<img src="'+src+'" alt="">' : '<span>'+empty+'</span>';
+}
+
+function submitProduct(e){
+  e.preventDefault();
+  const id = $('#editId').value;
+  const imgUrl = $('#pImgUrl').value.trim();
+  const current = id ? state.products.find(x => x.id === id) : null;
+  let img = imgUrl || (current ? current.img : '');
+
+  if (!img){
+    toast('Add a product image (URL or upload)');
+    return;
+  }
+
+  const data = {
+    brand: $('#pBrand').value.trim(),
+    name: $('#pName').value.trim(),
+    cat: $('#pCat').value,
+    cond: $('#pCond').value,
+    price: Number($('#pPrice').value),
+    oldPrice: Number($('#pOldPrice').value) || 0,
+    variants: $('#pVariants').value.split(',').map(s=>s.trim()).filter(Boolean),
+    desc: $('#pDesc').value.trim(),
+    badge: $('#pBadge').value,
+    stock: $('#pStock').value === '1' ? 1 : 0,
+    img
+  };
+
+  if (id){
+    Object.assign(current, data);
+    toast('✓ Product updated');
+  } else {
+    state.products.unshift(Object.assign({ id: uid() }, data));
+    toast('✓ Product published');
+  }
+  save();
+  resetProductForm();
+  renderAdminProducts();
+  renderProducts();
+  renderCategories();
+}
+function resetProductForm(){
+  $('#prodForm').reset();
+  $('#editId').value = '';
+  $('#prodFormTitle').textContent = 'Publish new product';
+  $('#prodSubmitBtn').textContent = 'Publish Product';
+  $('#prodCancelBtn').style.display = 'none';
+  setPreview('#pPreview', '', 'No image');
+}
+
+/* image upload for product form */
+function handleProdImage(file){
+  return new Promise((res, rej) => {
+    const r = new FileReader();
+    r.onload = ()=>{
+      const img = new Image();
+      img.onload = ()=>{
+        const max = 900;
+        const sc = Math.min(1, max/Math.max(img.width, img.height));
+        const w = Math.round(img.width*sc), h = Math.round(img.height*sc);
+        const c = document.createElement('canvas');
+        c.width = w; c.height = h;
+        c.getContext('2d').drawImage(img, 0, 0, w, h);
+        try { res(c.toDataURL('image/jpeg', .7)); } catch(e){ rej(e); }
+      };
+      img.onerror = rej;
+      img.src = r.result;
+    };
+    r.onerror = rej;
+    r.readAsDataURL(file);
+  });
+}
+
+/* ============ SETTINGS ============ */
+function fillSettings(){
+  const s = state.settings;
+  $('#sName').value = s.name;
+  $('#sTagline').value = s.tagline;
+  $('#sWhatsapp').value = s.whatsapp;
+  $('#sAddress').value = s.address;
+  $('#cLime').value = s.lime;
+  $('#cAmber').value = s.amber;
+}
+function initSettings(){
+  ['sName','sTagline','sWhatsapp','sAddress'].forEach(id => {
+    const el = $('#'+id);
+    el.addEventListener('change', ()=>{
+      const key = id.replace('s','').toLowerCase();
+      state.settings[key === 'name' ? 'name' : key] = el.value.trim();
+      save(); applySettings(); toast('Setting updated');
+    });
+  });
+  $('#cLime').addEventListener('input', e => {
+    state.settings.lime = e.target.value; save(); applySettings();
+  });
+  $('#cAmber').addEventListener('input', e => {
+    state.settings.amber = e.target.value; save(); applySettings();
+  });
+  $('#savePass').addEventListener('click', ()=>{
+    const v = $('#newPass').value.trim();
+    if (v.length < 4){ toast('Passcode must be at least 4 characters'); return; }
+    state.settings.password = v;
+    save(); $('#newPass').value = '';
+    toast('Passcode updated');
+  });
+  $('#exportData').addEventListener('click', ()=>{
+    const blob = new Blob([JSON.stringify(state, null, 2)], { type:'application/json' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'plug-gadgets-backup.json';
+    a.click();
+    URL.revokeObjectURL(a.href);
+    toast('Backup downloaded');
+  });
+  $('#importData').addEventListener('change', e => {
+    const file = e.target.files[0]; if (!file) return;
+    const fr = new FileReader();
+    fr.onload = ()=>{
+      try{
+        const p = JSON.parse(fr.result);
+        if (p.products) state.products = p.products;
+        if (p.orders) state.orders = p.orders;
+        if (p.settings) state.settings = Object.assign({}, DEFAULT_SETTINGS, p.settings);
+        save(); applySettings(); renderAdmin(); renderProducts(); renderCategories();
+        toast('Data imported');
+      }catch(err){ toast('Invalid file'); }
+    };
+    fr.readAsText(file); e.target.value = '';
+  });
+  $('#resetAll').addEventListener('click', ()=>{
+    if (!confirm('Reset everything to defaults? All products and orders will be lost.')) return;
+    state = JSON.parse(JSON.stringify(DEFAULTS));
+    save(); applySettings(); renderAdmin(); renderProducts(); renderCategories();
+    toast('Reset to defaults');
+  });
+}
+
+/* ============ INIT ============ */
+function init(){
+  $('#year').textContent = new Date().getFullYear();
+  applySettings();
+  renderTicker();
+  renderCategories();
+  renderFilters();
+  renderProducts();
+  renderTestimonials();
+  renderCart();
+  watchReveal();
+  updateStorage();
+
+  initHeader();
+  initGate();
+  initTabs();
+  initSettings();
+
+  // cart
+  $('#cartBtn').addEventListener('click', openCart);
+  $('#cartClose').addEventListener('click', closeCart);
+  $('#cartOverlay').addEventListener('click', closeCart);
+  $('#checkoutBtn').addEventListener('click', openCheckout);
+  $('#checkoutForm').addEventListener('submit', submitCheckout);
+  $('#checkoutClose').addEventListener('click', ()=>{ $('#checkoutModal').classList.remove('open'); document.body.classList.remove('locked'); });
+
+  // product modal
+  $('#pdClose').addEventListener('click', closeProduct);
+  $('#pdModal').addEventListener('click', e => { if (e.target.id === 'pdModal') closeProduct(); });
+
+  // product form
+  fillCatSelect();
+  $('#prodForm').addEventListener('submit', submitProduct);
+  $('#prodCancelBtn').addEventListener('click', resetProductForm);
+  $('#pImgUrl').addEventListener('input', e => setPreview('#pPreview', e.target.value.trim(), 'No image'));
+  $('#pImgFile').addEventListener('change', async e => {
+    const file = e.target.files[0]; if (!file) return;
+    try{
+      const dataUrl = await handleProdImage(file);
+      $('#pImgUrl').value = '';
+      setPreview('#pPreview', dataUrl, 'No image');
+      // store as pending data-url to be picked up at submit
+      $('#pImgUrl').dataset.dataUrl = dataUrl;
+      toast('Image ready — click Publish');
+    }catch(err){ toast('Image failed'); }
+    e.target.value = '';
+  });
+
+  // pick up data-url on submit
+  const origSubmit = submitProduct;
+  $('#prodForm').removeEventListener('submit', submitProduct);
+  $('#prodForm').addEventListener('submit', e => {
+    const pending = $('#pImgUrl').dataset.dataUrl;
+    if (pending && !$('#pImgUrl').value.trim()){
+      $('#pImgUrl').value = pending;
+    }
+    delete $('#pImgUrl').dataset.dataUrl;
+    origSubmit(e);
+  });
+
+  // admin
+  ['#openAdmin','#openAdminMobile','#footerAdmin'].forEach(sel => {
+    const el = $(sel); if (el) el.addEventListener('click', e => { e.preventDefault(); openAdmin(); });
+  });
+
+  // contact
+  $('#contactForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const data = new FormData(e.target);
+    const text = 'Hi Plug Gadgets! I want to enquire about a device.\n\n' +
+      'Name: ' + (e.target.querySelector('input').value || '') + '\n' +
+      'Looking for: ' + (e.target.querySelector('select').value || '') + '\n' +
+      'Location: ' + (e.target.querySelectorAll('input')[2]?.value || '') + '\n' +
+      'Details: ' + (e.target.querySelector('textarea').value || '');
+    window.open('https://wa.me/' + state.settings.whatsapp + '?text=' + encodeURIComponent(text), '_blank');
+    toast('Opening WhatsApp...');
+    e.target.reset();
+  });
+
+  // close menus on Esc
+  document.addEventListener('keydown', e => {
+    if (e.key !== 'Escape') return;
+    closeCart();
+    closeProduct();
+    $('#checkoutModal').classList.remove('open');
+    document.body.classList.remove('locked');
+  });
+}
+
+document.addEventListener('DOMContentLoaded', init);
+})();
+</script>
+</body>
+</html>
